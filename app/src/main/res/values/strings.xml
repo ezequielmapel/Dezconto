@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Dezconto-prot</string>
+    <string name="btnEntrar">ENTRAR</string>
+    <string name="btnLojista">VALIDAR CUPOM</string>
+</resources>

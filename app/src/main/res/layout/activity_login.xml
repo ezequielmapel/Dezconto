@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGray"
+    tools:context="com.dezconto.dezconto_prot.LoginActivity">
+
+    <ImageView
+        android:id="@+id/imgLogin"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="70dp"
+        android:layout_width="303dp"
+        android:layout_height="160dp"
+        app:srcCompat="@mipmap/dezcontologo"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="56dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:background="@drawable/border"
+        android:text="@string/btnEntrar"
+        android:textColor="@color/colorPrincipal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnLojista"
+        android:layout_width="175dp"
+        android:layout_marginTop="460dp"
+        android:background="@drawable/border"
+        android:textColor="@color/colorPrincipal"
+        android:layout_height="wrap_content"
+        android:text="@string/btnLojista"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="491dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</android.support.constraint.ConstraintLayout>
