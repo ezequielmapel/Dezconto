@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Dezconto-prot</string>
     <string name="btnEntrar">ENTRAR</string>
-    <string name="btnLojista">VALIDAR CUPOM</string>
+    <string name="btnLojista">CRIAR CONTA</string>
+
+    <!-- Strings CadastroActivity -->
+    <string name="nome">Nome Completo</string>
+    <string name="senha">Senha</string>
+    <string name="senha2">Confirme sua senha</string>
+    <string name="email">Email</string>
+    <string name="btnConfirmar">CONFIRMAR</string>
+    <string name="btnSair">SAIR</string>
 </resources>
