@@ -3,13 +3,21 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrincipal</item>
+        <item name="colorPrimary">@color/colorMain</item>
         <item name="colorPrimaryDark">@color/colorPrincipal</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorMain</item>
+
+
     </style>
 
     <style name="splashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorMain</item>
+        <item name="colorPrimaryDark">@color/colorPrincipal</item>
+        <item name="colorAccent">@color/colorMain</item>
         <item name="android:windowBackground">@drawable/gradient_splash</item>
+    </style>
 
+    <style name="LoginTema" parent="Theme.AppCompat.Light.DarkActionBar" >
+        <item name="colorPrimary">@color/colorMain</item>
     </style>
 </resources>

@@ -23,6 +23,8 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".otherviews.CadastroActivity" />
         <activity android:name=".views.MainPage" />
+
     </application>
+
 
 </manifest>

@@ -7,9 +7,11 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TabHost;
 
 import com.dezconto.dezconto_prot.LoginActivity;
 import com.dezconto.dezconto_prot.R;
+import com.dezconto.dezconto_prot.otherviews.CadastroActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainPage extends AppCompatActivity{
@@ -19,6 +21,10 @@ public class MainPage extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+
+
+
+
 
 
         btnSair = findViewById(R.id.btnSair);

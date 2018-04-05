@@ -3,25 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/coloBgLogin"
     android:layout_height="match_parent"
     tools:context="com.dezconto.dezconto_prot.views.MainPage">
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="47dp"
-        android:layout_height="wrap_content"
-        android:popupBackground="@color/colorWhite"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="335dp"
-        tools:layout_editor_absoluteY="16dp" />
 
     <Button
         android:id="@+id/btnSair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnSair"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="2dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="486dp" />
+
 
 </android.support.constraint.ConstraintLayout>

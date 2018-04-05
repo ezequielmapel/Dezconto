@@ -4,86 +4,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrincipal"
+
+
     tools:context="com.dezconto.dezconto_prot.LoginActivity">
 
     <ImageView
-        android:id="@+id/imgLogin"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="70dp"
-        android:layout_width="303dp"
-        android:layout_height="160dp"
-        app:srcCompat="@mipmap/dezcontologo"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="56dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@mipmap/back"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="2dp"
         tools:ignore="MissingConstraints"
-        android:contentDescription="@string/app_name" />
+        android:contentDescription="@string/imgbg" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.6"
+        app:srcCompat="@drawable/gradient_login"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="42dp"
+        android:contentDescription="@string/gradient_image" />
+
+    <ImageView
+        android:id="@+id/imgLogin"
+        android:layout_width="231dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="70dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/dezcontologo"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnEntrar"
-        android:layout_width="175dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:layout_width="122dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="420dp"
         android:background="@drawable/border"
+        android:drawableLeft="@mipmap/enter"
+        android:drawableStart="@mipmap/enter"
+        android:textAlignment="center"
+        android:paddingLeft="30dip" android:paddingRight="26dip"
+        android:textSize="11sp"
         android:text="@string/btnEntrar"
-        android:textColor="@color/colorBorder"
+        android:textColor="@color/colorPrincipal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SmallSp"
+        android:paddingStart="10dip"
+        android:paddingEnd="14dip" />
 
     <Button
         android:id="@+id/btnCriarConta"
         android:layout_width="175dp"
-        android:layout_marginTop="460dp"
-        android:background="@drawable/border"
-        android:textColor="@color/colorBorder"
         android:layout_height="wrap_content"
+        android:layout_marginTop="480dp"
+        android:background="@android:color/transparent"
         android:text="@string/btnLojista"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="491dp"
+        android:textColor="@color/colorBorder"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/loginEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:drawableBottom="@color/colorBorder"
+        android:drawableLeft="@mipmap/man_user"
+        android:drawableStart="@mipmap/man_user"
         android:ems="10"
+        android:hint="@string/emailL"
         android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="244dp"
-        android:hint="@string/email"
-        android:background="@drawable/borderwhite"
         android:padding="10dp"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorBlack"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgLogin"
-        android:layout_marginTop="5dp"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/loginSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:drawableBottom="@color/colorBorder"
         android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="305dp"
-        android:hint="@string/senha"
-        android:background="@drawable/borderwhite"
+        android:hint="@string/senhaL"
+        android:inputType="textEmailAddress"
         android:padding="10dp"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorBlack"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/loginEmail"
-        android:layout_marginTop="10dp"
-        tools:ignore="MissingConstraints" />
+        android:drawableLeft="@mipmap/house_key"
+        android:textAlignment="center"
+        tools:ignore="MissingConstraints"
+        android:drawableStart="@mipmap/house_key" />
 
     <ProgressBar
         android:id="@+id/progressBarL"
@@ -99,5 +129,20 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/icongoogle"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@mipmap/gg"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgLogin"
+        tools:layout_editor_absoluteX="167dp"
+        tools:layout_editor_absoluteY="198dp"
+        android:contentDescription="@string/imggooglefa" />
+
+
 
 </android.support.constraint.ConstraintLayout>

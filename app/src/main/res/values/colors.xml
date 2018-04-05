@@ -8,4 +8,6 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorGray">#1e2a30</color>
     <color name="colorBorder">#ffaf3d</color>
+    <color name="colorMain">#9447ef</color>
+    <color name="coloBgLogin">#f1e8ff</color>
 </resources>

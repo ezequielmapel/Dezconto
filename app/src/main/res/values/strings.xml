@@ -2,7 +2,8 @@
     <string name="app_name">Dezconto-prot</string>
     <string name="btnEntrar">ENTRAR</string>
     <string name="btnLojista">CRIAR CONTA</string>
-
+    <string name="senhaL">Senha</string>
+    <string name="emailL">Email </string>
     <!-- Strings CadastroActivity -->
     <string name="nome">Nome Completo</string>
     <string name="senha">Senha</string>
@@ -10,4 +11,12 @@
     <string name="email">Email</string>
     <string name="btnConfirmar">CONFIRMAR</string>
     <string name="btnSair">SAIR</string>
+
+    <!-- IMAGENS CONTENTS -->
+    <string name="imgbg">imagebg</string>
+    <string name="imgManUser">ico_man_user</string>
+    <string name="imgkeypass">ico_key_pass</string>
+    <string name="imgenter">ico_entrar</string>
+    <string name="imggooglefa">ico_fa_google</string>
+    <string name="gradient_image">gradient_image</string>
 </resources>
