@@ -23,8 +23,8 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".otherviews.CadastroActivity" />
         <activity android:name=".views.MainPage" />
-
+        <activity android:name=".views.Cupons" />
+        <activity android:name=".views.Conta"></activity>
     </application>
-
 
 </manifest>

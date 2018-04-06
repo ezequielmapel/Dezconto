@@ -103,7 +103,7 @@
         android:drawableBottom="@color/colorBorder"
         android:ems="10"
         android:hint="@string/senhaL"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         android:padding="10dp"
         android:textColor="@color/colorBlack"
         android:textColorHint="@color/colorBlack"
