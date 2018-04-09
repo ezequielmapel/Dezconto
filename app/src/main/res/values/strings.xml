@@ -19,4 +19,10 @@
     <string name="imgenter">ico_entrar</string>
     <string name="imggooglefa">ico_fa_google</string>
     <string name="gradient_image">gradient_image</string>
+
+    <!-- Activity Conta -->
+    <string name="changePass">Mudar senha</string>
+    <string name="delAcc">Deletar conta</string>
+    <string name="sairApp">Sair</string>
+
 </resources>

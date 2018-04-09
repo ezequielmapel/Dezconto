@@ -20,4 +20,15 @@
     <style name="LoginTema" parent="Theme.AppCompat.Light.DarkActionBar" >
         <item name="colorPrimary">@color/colorMain</item>
     </style>
+
+
+    <style name="TabWidgetTheme" parent="AppTheme">
+        <item name="android:textColorPrimary">@color/colorMain</item>
+        <item name="android:textColorSecondary">@color/coloBgLogin</item>
+    </style>
+
+    <style name="btnThemes" parent="AppTheme">
+        <item name="android:textColor">@color/colorMain</item>
+    </style>
+
 </resources>

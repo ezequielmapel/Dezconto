@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.dezconto.dezconto_prot.LoginActivity;
 import com.dezconto.dezconto_prot.R;
@@ -29,12 +30,13 @@ public class MainPage extends AppCompatActivity  {
         mTabHost = (FragmentTabHost)findViewById(android.R.id.tabhost);
         mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
 
-        mTabHost.addTab(mTabHost.newTabSpec("conta").setIndicator("Conta"),
-                Conta.class, null);
         mTabHost.addTab(mTabHost.newTabSpec("cupons").setIndicator("Cupons"),
                 Cupons.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("conta").setIndicator("Conta"),
+                Conta.class, null);
 
 //
+
 //
 //        TabHost mTabHost = getTabHost();
 //
