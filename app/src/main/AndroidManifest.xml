@@ -22,9 +22,9 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".otherviews.CadastroActivity" />
-        <activity android:name=".views.MainPage" />
-        <activity android:name=".views.Cupons" />
-        <activity android:name=".views.Conta"></activity>
+        <activity android:name=".views.MainPage" android:noHistory="true"  />
+        <activity android:name=".views.Cupons"/>
+        <activity android:name=".views.Conta" android:noHistory="true"></activity>
     </application>
 
 </manifest>

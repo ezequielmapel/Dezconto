@@ -35,7 +35,6 @@ public class MainPage extends AppCompatActivity  {
         mTabHost.addTab(mTabHost.newTabSpec("conta").setIndicator("Conta"),
                 Conta.class, null);
 
-//
 
 //
 //        TabHost mTabHost = getTabHost();
@@ -80,4 +79,7 @@ public class MainPage extends AppCompatActivity  {
         return tabHost.newTabSpec("Cupons")
                 .setIndicator("cupons");
     }
+
+
+
 }

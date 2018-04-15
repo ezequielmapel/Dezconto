@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-
     tools:context="com.dezconto.dezconto_prot.LoginActivity">
 
     <ImageView
@@ -75,6 +73,19 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
+    <Button
+        android:id="@+id/btnSignGg"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@mipmap/gg"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="208dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgLogin"/>
+
     <EditText
         android:id="@+id/loginEmail"
         android:layout_width="wrap_content"
@@ -127,20 +138,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/icongoogle"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:srcCompat="@mipmap/gg"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgLogin"
-        tools:layout_editor_absoluteX="167dp"
-        tools:layout_editor_absoluteY="198dp"
-        android:contentDescription="@string/imggooglefa" />
-
 
 
 </android.support.constraint.ConstraintLayout>

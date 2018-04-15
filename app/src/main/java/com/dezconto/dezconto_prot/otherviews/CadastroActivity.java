@@ -64,7 +64,6 @@ public class CadastroActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar2);
 
 
-
         // CADASTRO
         btnConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
