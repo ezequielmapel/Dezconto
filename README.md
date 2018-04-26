@@ -3,7 +3,7 @@
 # Sumário
 
 ### 1.COMPONENTES<br>
-Ezequiel Mapel(ezequiel.mapelli@hotmail.com)<br> 
+Ezequiel Mapel(ezequiel.f.mapel@gmail.com)<br> 
 Pedro Henrique(pedroso.hts@gmail.com)<br>
 Ramom Matieli(ramommatieli@hotmail.com)<br>
 
