@@ -1,4 +1,4 @@
-# Dezconto - Aplicativo Mobile
+# Dezconto
 
 # Sumário
 
