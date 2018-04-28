@@ -1,9 +1,12 @@
 <resources>
+    <!--  ACTIVITY LOGIN  -->
     <string name="app_name">Dezconto-prot</string>
     <string name="btnEntrar">ENTRAR</string>
     <string name="btnLojista">CRIAR CONTA</string>
     <string name="senhaL">Senha</string>
     <string name="emailL">Email </string>
+    <string name="switchManter">Manter conectado? </string>
+
     <!-- Strings CadastroActivity -->
     <string name="nome">Nome Completo</string>
     <string name="senha">Senha</string>
@@ -24,5 +27,14 @@
     <string name="changePass">Mudar senha</string>
     <string name="delAcc">Deletar conta</string>
     <string name="sairApp">Sair</string>
+    <string name="title_activity_nav_bottom">NavBottom</string>
+
+    <!-- Butoom nav -->
+    <string name="tittle_cp">CUPONS</string>
+    <string name="tittle_fav">FAVORITOS</string>
+    <string name="tittle_acc">CONTA</string>
+    <string name="title_activity_bottom_nav">BottomNav</string>
+
+
 
 </resources>

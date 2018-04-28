@@ -11,8 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.Switch;
 import android.widget.Toast;
 
+import com.dezconto.dezconto_prot.otherclass.BottomNav;
 import com.dezconto.dezconto_prot.otherviews.CadastroActivity;
 import com.dezconto.dezconto_prot.views.MainPage;
 import com.google.android.gms.auth.api.Auth;
@@ -48,6 +50,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private Button btnCriarConta, btnEntrar, btnLoginGg;
     private EditText loginEmailEt, loginSenhaEt;
     private ProgressBar progressBarL;
+    private Switch swManter;
 
     // STRINGS
     private String loginEmail;
@@ -80,6 +83,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         btnLoginGg = findViewById(R.id.btnSignGg);
 
 
+
         btnLoginGg.setOnClickListener(this);
         btnCriarConta.setOnClickListener(this);
         btnEntrar.setOnClickListener(this);
@@ -98,7 +102,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     //startActivity(new Intent(LoginActivity.this, MainPage.class));
                     //finish();
                     updateUI(true);
-                    status = true;
+
 
                 } else {
                     // User is signed out
@@ -108,6 +112,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
             }
         };
+
 
     }
 
@@ -131,13 +136,17 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
                     //startActivity(new Intent(LoginActivity.this, MainPage.class));
                     //finish();
+
                     updateUI(true);
-                    status = true;
+
                 }
 
 
             }
         });
+
+
+
 
     }
 
@@ -153,13 +162,17 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     public void updateUI(boolean isLogin) {
 
-
         if (isLogin) {
-            startActivity(new Intent(LoginActivity.this, MainPage.class));
+            //startActivity(new Intent(LoginActivity.this, MainPage.class));
+            startActivity(new Intent(LoginActivity.this, BottomNav.class));
             finish();
         }
-        if(!status){
-            signOut();
+        try {
+            if (!status) {
+                signOut();
+            }
+        }catch (IllegalStateException ig){
+
         }
     }
 
@@ -180,7 +193,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             @Override
             public void onResult(@NonNull Status s) {
                updateUI(false);
-               status = false;
 
             }
         });
@@ -204,11 +216,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
 
             updateUI(true);
-            status = true;
+
 
         }else{
             updateUI(false);
-            status = false;
+
 
         }
     }
@@ -236,15 +248,19 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 loginEmail = loginEmailEt.getText().toString();
                 loginSenha = loginSenhaEt.getText().toString();
 
+
+
                 if(validateform(loginEmail, loginSenha)) {
                     signIn(loginEmail, loginSenha);
                 }else{
                     Toast.makeText(LoginActivity.this, "Por favor, preencha os campos", Toast.LENGTH_SHORT).show();
                 }
+
+
                 break;
 
             case R.id.btnSignGg:
-                    signIn();
+                signIn();
                 break;
 
 
@@ -258,15 +274,18 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        @SuppressLint("RestrictedApi") GoogleSignInAccount acc = GoogleSignIn.getLastSignedInAccount(this);
-//
-//        if(acc != null){
-//            Log.d("testandoo", "nao é null");
-//            updateUI(true);
-//        }else{
-//            Log.d("testandoo", "é null");
-//        }
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        @SuppressLint("RestrictedApi") GoogleSignInAccount acc = GoogleSignIn.getLastSignedInAccount(this);
+
+        if(acc != null && status){
+            updateUI(true);
+        }else if(currentUser != null && status){
+            updateUI(true);
+        }else{
+            status = false;
+        }
+
 
     }
 
@@ -274,7 +293,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     public static void setUser(boolean isLogin){
         if(!isLogin){
             status = false;
-
         }
     }
 

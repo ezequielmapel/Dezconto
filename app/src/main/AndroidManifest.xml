@@ -22,9 +22,19 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".otherviews.CadastroActivity" />
-        <activity android:name=".views.MainPage" android:noHistory="true"  />
-        <activity android:name=".views.Cupons"/>
-        <activity android:name=".views.Conta" android:noHistory="true"></activity>
+        <activity
+            android:name=".views.MainPage"
+            android:noHistory="true" />
+        <!--<activity android:name=".views.Cupons" />-->
+        <!--<activity-->
+            <!--android:name=".views.Conta"-->
+            <!--android:noHistory="true" />-->
+        <!--<activity-->
+            <!--android:name=".nav.NavBottom"-->
+            <!--android:label="@string/title_activity_nav_bottom" />-->
+        <activity
+            android:name=".otherclass.BottomNav"
+            android:label="@string/title_activity_bottom_nav" />
     </application>
 
 </manifest>
