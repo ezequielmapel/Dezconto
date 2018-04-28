@@ -29,5 +29,5 @@ Ao entrar, o Lojista encontrará a opção de **CADASTRAR DESCONTO**, informando
 
 ![Alt text](https://github.com/Ramom-Matieli17/DezcontoApp/blob/master/prints/Dezconto-app.PNG)
 <br><br>
-[Código do projeto mobile](https://github.com/ezequielmapel/DezcontoApp/)
+[Código do projeto mobile](https://github.com/ezequielmapel/Dezconto/tree/dev)
 
