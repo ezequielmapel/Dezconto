@@ -36,5 +36,9 @@
     <string name="title_activity_bottom_nav">BottomNav</string>
 
 
+    <!-- ListView Cupons -->
+    <string name="btnPegar">PEGAR</string>
+    <string name="cp_qtd">QUANTIDADE: </string>
+
 
 </resources>
