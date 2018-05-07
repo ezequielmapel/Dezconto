@@ -1,14 +1,29 @@
 package com.dezconto.dezconto_prot.otherclass;
 
+import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import com.google.firebase.database.DatabaseReference;
 
+import java.io.Serializable;
 
-public class User {
+
+public class User implements Serializable{
     private String nome;
     private String senha;
     private String email;
+    private String userId;
+    private String imagePerfil;
+
+    public String getImagePerfil() {
+        return imagePerfil;
+    }
+
+    public void setImagePerfil(String imagePerfil) {
+        this.imagePerfil = imagePerfil;
+    }
 
     public String getSenha() {
         return senha;
@@ -26,7 +41,7 @@ public class User {
         this.email = email;
     }
 
-    private String userId;
+
 
     public String getNome() {
         return nome;
@@ -52,10 +67,17 @@ public class User {
 
     }
 
-    private User(String nome, String email, String userId){
+    public User(String nome, String email, String userId){
         this.nome = nome;
         this.email = email;
         this.userId = userId;
+    }
+
+    public User(String nome, String email, String userId, String imagePerfil){
+        this.nome = nome;
+        this.email = email;
+        this.userId = userId;
+        this.imagePerfil = imagePerfil;
     }
 
     public static void writeNewUser(DatabaseReference mDatabase, String nome, String email, String userId){
@@ -64,5 +86,6 @@ public class User {
 
         Log.d("User:writeNewUser", "Tentativa para salvar usuário");
     }
+
 
 }

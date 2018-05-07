@@ -2,6 +2,7 @@ package com.dezconto.dezconto_prot;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,8 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import com.dezconto.dezconto_prot.otherclass.BottomNav;
+import com.dezconto.dezconto_prot.otherclass.ContaFragment;
+import com.dezconto.dezconto_prot.otherclass.User;
 import com.dezconto.dezconto_prot.otherviews.CadastroActivity;
 import com.dezconto.dezconto_prot.views.MainPage;
 import com.google.android.gms.auth.api.Auth;
@@ -56,6 +59,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private String loginEmail;
     private String loginSenha;
 
+    // Outros
+    private User infoUser = null;
+    public static final int CONST_ACC = 1;
     public LoginActivity() {
 
     }
@@ -65,9 +71,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         setContentView(R.layout.activity_login);
 
         // GOOGLE LOGIN
-        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
+        //.requestIdToken(getString(R.string.default_web_client_id))
+        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
 
-        googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API).build();
+        googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, googleSignInOptions).build();
 
         // VARIABLES
 
@@ -164,8 +171,15 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         if (isLogin) {
             //startActivity(new Intent(LoginActivity.this, MainPage.class));
-            startActivity(new Intent(LoginActivity.this, BottomNav.class));
-            finish();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("UserClass", this.infoUser);
+            //bundle.putString("nameUser", this.infoUser.getNome());
+            Intent bNav = new Intent(LoginActivity.this, BottomNav.class);
+            bNav.putExtras(bundle);
+                startActivity(bNav);
+
+                finish();
+
         }
         try {
             if (!status) {
@@ -208,6 +222,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             String nome = account.getDisplayName();
             String id = account.getId();
             String urlphoto = String.valueOf(account.getPhotoUrl());
+
+            //User infoUser = new User(nome, email, id, urlphoto);
+            this.infoUser = new User(nome, email, id, urlphoto);
 
             btnEntrar.setVisibility(View.INVISIBLE);
             btnCriarConta.setVisibility(View.INVISIBLE);
@@ -294,6 +311,15 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         if(!isLogin){
             status = false;
         }
+    }
+
+
+    public void setInfoUser(User u){
+        this.infoUser = u;
+    }
+
+    public User getInfoUser(){
+        return this.infoUser;
     }
 
 }
