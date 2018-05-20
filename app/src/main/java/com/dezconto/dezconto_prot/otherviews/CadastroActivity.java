@@ -127,9 +127,8 @@ public class CadastroActivity extends AppCompatActivity {
                             btnConfirmar.setVisibility(View.VISIBLE);
                             progressBar.setVisibility(View.INVISIBLE);
                         }else{
+
                             // Salvando usuário no BD
-
-
                             startActivity(new Intent(CadastroActivity.this, LoginActivity.class));
                             finish();
                             try{

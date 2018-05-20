@@ -5,12 +5,18 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 
+import com.dezconto.dezconto_prot.MainActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
 
 
 public class User implements Serializable{
+
     private String nome;
     private String senha;
     private String email;
@@ -86,6 +92,28 @@ public class User implements Serializable{
 
         Log.d("User:writeNewUser", "Tentativa para salvar usuário");
     }
+
+    public static void writeNewUser(final DatabaseReference mDatabase, final User user){
+        Log.d("User:writeNewUser2", "Salvar usuário do Gmail checando se ele já existe");
+
+        Query q = mDatabase.child("user").orderByChild("email").equalTo(user.getEmail());
+        q.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getValue() == null){
+                    mDatabase.child("user").child(user.getUserId()).setValue(user);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+    }
+
 
 
 }

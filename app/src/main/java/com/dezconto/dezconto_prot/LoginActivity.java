@@ -25,6 +25,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.auth.api.signin.SignInAccount;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApi;
@@ -36,6 +37,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
     // FIREBASE AUTH
@@ -137,6 +140,15 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     Log.w("SignIn", "signInWithEmail:failed", task.getException());
                     Toast.makeText(LoginActivity.this, "Não foi possível conectar!", Toast.LENGTH_SHORT).show();
                 } else {
+                    FirebaseUser account = task.getResult().getUser();
+                    String email = account.getEmail();
+                    String nome = account.getDisplayName();
+                    String id = account.getProviderId();
+                    String urlphoto = String.valueOf(account.getPhotoUrl());
+
+                    //User infoUser = new User(nome, email, id, urlphoto);
+                    infoUser = new User(nome, email, id, urlphoto);
+
                     btnEntrar.setVisibility(View.INVISIBLE);
                     btnCriarConta.setVisibility(View.INVISIBLE);
                     progressBarL.setVisibility(View.VISIBLE);
@@ -177,7 +189,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             Intent bNav = new Intent(LoginActivity.this, BottomNav.class);
             bNav.putExtras(bundle);
                 startActivity(bNav);
-
                 finish();
 
         }
@@ -185,7 +196,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             if (!status) {
                 signOut();
             }
-        }catch (IllegalStateException ig){
+        }catch (IllegalStateException ignored){
 
         }
     }
@@ -198,6 +209,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
 
     private void signIn(){
+        // LOGIN VIA GMAIL > handleResult
         Intent intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
         startActivityForResult(intent, REQ_CODE);
     }
@@ -214,8 +226,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     // --- GOOGLE SIGN ---//
     private void handleResult(GoogleSignInResult result){
-
         if(result.isSuccess()){
+            // FIRABASE
+            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
             GoogleSignInAccount account = result.getSignInAccount();
             // gets informações
             String email = account.getEmail();
@@ -225,6 +238,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
             //User infoUser = new User(nome, email, id, urlphoto);
             this.infoUser = new User(nome, email, id, urlphoto);
+
+            // escrever no bd
+            User.writeNewUser(mDatabase, this.infoUser);
+
 
             btnEntrar.setVisibility(View.INVISIBLE);
             btnCriarConta.setVisibility(View.INVISIBLE);

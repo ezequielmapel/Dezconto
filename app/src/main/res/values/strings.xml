@@ -38,7 +38,7 @@
 
     <!-- ListView Cupons -->
     <string name="btnPegar">PEGAR</string>
-    <string name="cp_qtd">QUANTIDADE: </string>
+    <string name="cp_qtd">Quantidade </string>
 
 
 </resources>
