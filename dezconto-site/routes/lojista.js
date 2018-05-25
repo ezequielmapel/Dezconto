@@ -21,7 +21,7 @@ router.post('/cadastro', function(req, res){
   
 
   console.log(lojNome);
-  res.send(lojNome);
+ 
 });
 
 module.exports = router;
