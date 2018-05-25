@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dezconto - Seu companheiro de compras!</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style-lojista.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+</head>
+<body>
+	<div class="container-fluid font">	
+		<div class="row header c_botoes">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-2">
+				<img src="/images/logo2.png" class="img_logo">
+			</div>
+			<div class="col-sm-6"></div>
+			<div class="col-sm-3">
+				<a href="/" class="ini">INICIO</a>				
+				<span class="entrar">
+					<a href="login/lojista" ><button type="button" class="btt_entrar">ENTRAR</button></a> 
+				</span>												
+			</div>			
+			<div class="col-sm-1"></div>
+		</div>
+		<div class="row center">
+			<div class="img_center">
+				<div class="col-sm-6"></div>
+				<div class="col-sm-4 title_eco">
+					ANUNCIE
+					<div class="subt_eco">
+						cadastre-se e anuncie seu negócio conosco
+					</div>
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+		</div>
+		<div class="row center2">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<div class="row">
+					<div class="col-sm-4">
+						<img src="/images/note.png" class="note">
+					</div>
+					<div class="col-sm-8">
+						<div class="title_note">
+							SIMPLES E FÁCIL
+						</div>
+						<div class="subt_note">
+							cadastre cupons, valide-os, veja estatisticas<br>
+							tudo em um unico lugar
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+		<div class="row espaço">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<div class="cadastro">
+					CADASTRE-SE
+				</div>
+				<div class="row">
+					<form action="/lojista" method="post">
+					<div class="col-sm-12 centralize">
+						<input name="nome" type="text" class="type1" placeholder="NOME">
+						<label>     </label>
+						<input name="sobrenome" class="type1" placeholder="SOBRENOME"><br>
+						<input name="email" class="type2" placeholder="EMAIL">
+						<input name="senha" class="type2" placeholder="SENHA">
+						
+						<div class="reposition">
+							<label class="container reposition2">CNPJ
+	 							<input id="cnpj" type="radio" name="radio">
+								<span class="checkmark"></span>
+							</label>
+							<label class="container reposition2">CPF
+								<input id="cpf" type="radio" name="radio">
+								<span class="checkmark"></span>
+							</label>
+						</div>
+						
+						<input name="nmr" class="type2" placeholder="CNPJ/CPF">
+                        <div class="slidecontainer">
+                            Informe a % de desconto que estaria disposto a oferecer <b>permanentemente</b> aos consumidores:
+                           
+                                <div class="output">
+                                    <output name="outcusto1" id="outcusto1" class="output">5</output><span>por cento (%)</span>
+                                </div>
+                                <input type="range" id='custo1' name='custo1' min="3" max="15" value="5" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
+                            
+                            Para mais informações, leia os <a href="#"><b>termos de uso</b></a>
+                        </div>
+					</div>
+					<div class="col-sm-12 alinhamento ajust">
+                        <label class="container reposition3">Li e concordo com os <a href="#">termos de uso</a>
+						  	<input  type="checkbox">
+						  	<span class="checkmark"></span>
+						</label>
+						<label class="container reposition3">Desejo receber novidades por email
+						 	 <input type="checkbox">
+						 	 <span class="checkmark"></span>
+						</label>
+					</div>
+                    <div class="centralize xtra">
+						<button  type="submit" id="btnConfirmar">CONFIRMAR E ENVIAR</button>
+					</div>
+				</form>
+				</div>
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+		<div class="row footer">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<div class="row">
+					<div class="col-sm-10">
+				 		<div class="copy">
+							&copy; Copyright 2018 WiRED DSGN
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<img src="/images/logo-footer.png" class="logo_footer">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-1"></div>			
+		</div>
+	</div>
+    <script>
+	// $('#btnConfirmar').click(function(){
+	// 	// Teste se as informações foram passadas corretas
+	
+	// 	window.location.replace('lojista/cadastro');
+	// });
+
+    // document.registrationForm.ageInputId.oninput = function(){
+    //     document.registrationForm.outcusto1.value = document.registrationForm.custo1.value;
+	// 	}
+
+	
+		
+
+    </script>
+</body>
+</html>

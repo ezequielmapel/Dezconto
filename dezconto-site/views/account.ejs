@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dezconto - Seu companheiro de compras!</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style-account.css">
+</head>
+<body>
+	<div class="container-fluid font">	
+		<div class="row header">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-2">
+				<img src="images/logo2.png" class="img_logo">
+			</div>
+			<div class="col-sm-6"></div>
+			<div class="col-sm-2">
+				<button class="btt_entrar">SAIR</button>										
+			</div>			
+			<div class="col-sm-1"></div>
+		</div>
+		<div class="row mid">
+			<div class="col-sm-2 menu">
+                <div class="profile">
+                    <img src="images/market.png" class="img_profile">
+                    bem vindo de volta<br> <span>USUARIO</span>
+                </div>
+				<ul>
+					<li class="opção selected" onclick="currentDiv(1)">Calculadora</li>
+					<li class="opção selected" onclick="currentDiv(2)">Cupons</li>
+					<li class="opção selected" onclick="currentDiv(3)">Configurações</li>
+				</ul>
+			</div>
+			<div class="col-sm-8 focus">
+                <div class="mySlides">
+                    <div class="row title">CALCULADORA</div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            Valor da Compra (R$):<input class="w3-input w3-border">
+                            Cupom Promocional:<input class="w3-input w3-border">
+                            Email do Cliente:<input class="w3-input w3-border">
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            Valor <span>Dez</span>conto (R$):
+                            <div class="valor_dez">100<span>,00</span></div>
+                            <button>CONFIRMAR</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="mySlides">
+                    <div class="row title">GERENCIAR CUPONS</div>
+                    <div class="row resize-font">
+                        <div class="col-sm-5">
+                            Nome do Cupom:<input class="w3-input w3-border">
+                            Descrição do Cupom:<input class="w3-input w3-border">
+                            
+                            Valor do Cupom (%):
+                            
+                            <form name="registrationForm">
+                                <div class="output">
+                                    <output name="outcusto1" id="outcusto1" class="output">10</output>
+                                </div>
+                                <input type="range" id='custo1' name='custo1' min="4" max="99" value="10" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
+                            </form>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            Quantidade de Cupons:
+                            
+                            <form name="registrationForm">
+                                <div class="output">
+                                    <output name="outcusto1" id="outcusto1" class="output">100</output>
+                                </div>
+                                <input type="range" id='custo1' name='custo1' min="1" max="500" value="30" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
+                            </form>
+                            <br>
+                            Validade da Promoção (dias):
+                            
+                            <form name="registrationForm">
+                                <div class="output">
+                                    <output name="outcusto1" id="outcusto1" class="output">30</output>
+                                </div>
+                                <input type="range" id='custo1' name='custo1' min="1" max="90" value="30" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
+                            </form>
+                            <br>
+                            Validade de cada Cupom (dias):
+                            
+                            <form name="registrationForm">
+                                <div class="output">
+                                    <output name="outcusto1" id="outcusto1" class="output">30</output>
+                                </div>
+                                <input type="range" id='custo1' name='custo1' min="1" max="90" value="30" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
+                            </form>
+                            
+                            <label class="container">Estou ciente sobre os <a href="#">termos de uso</a>
+						  	   <input type="checkbox">
+						  	   <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-1"></div>
+                            <div class="row options">
+                                <button>GERAR CUPOM</button>
+                                <button class="btton2">EXIBIR CUPONS CRIADOS</button>
+                            </div>
+                    </div>
+                </div>
+
+
+
+                <div class="mySlides">
+                    <div class="row title">CONFIGURAÇÕES</div>
+                    <div class="row">
+                        Valor cupom padrão:
+    
+                        <form name="registrationForm">
+                            <div class="output">
+                                <output name="outcusto1" id="outcusto1" class="output">3</output>
+                            </div>
+                            <input type="range" id='custo1' name='custo1' min="3" max="15" value="3" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
+                        </form>
+                        <br>
+                        <div class="col-sm-5">
+                            Estado:<input class="w3-input w3-border w3-animate-input">
+                            Cidade:<input class="w3-input w3-border w3-animate-input">
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            Bairro:<input class="w3-input w3-border w3-animate-input">
+                            Endereço:<input class="w3-input w3-border w3-animate-input">
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="row">
+                            <button>SALVAR ALTERAÇÕES</button>
+                        </div>
+                    </div>
+                </div>
+			</div>
+			<div class="col-sm-2"></div>
+		</div>
+		<div class="row footer">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<div class="row">
+					<div class="col-sm-10">
+				 		<div class="copy">
+							&copy; Copyright 2018 WiRED DSGN
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<img src="images/logo-footer.png" class="logo_footer">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-1"></div>			
+		</div>
+	</div>
+    
+    
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("opção");
+            if (n > x.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = x.length}
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" selected", "");
+            }
+            x[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " selected";
+        }
+</script>
+</body>
+</html>

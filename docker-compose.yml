@@ -1,0 +1,16 @@
+version: '3'
+services:
+  dezconto:
+    build:
+      context: ./images-docker
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+  
+    container_name: dezconto_site
+    restart: always
+    volumes:
+      - ./dezconto-site:/home/app/dezconto-site
+    
+    command: bash -c "npm install && npm start"
+  
