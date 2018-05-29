@@ -11,12 +11,31 @@ firebase.initializeApp(configfb);
 var database = firebase.database();
 
 
+function checkWriteLojista(name, email, imageUrl){
+  // Função pra checar se o usuário existe e escrevendo caso não
+  var nLoj = firebase.database().ref('lojista/');
+  nLoj.orderByChild('email').equalTo(email).once("value", function(snapshot){
+    if(!snapshot.val()){
+      firebase.database().ref('lojista/').push().set({
+        username: name,
+        email: email,
+        profile_picture : imageUrl
+     });
+    }
+  });
+  
+}
+
 function writeUserData(name, email, imageUrl) {
+  // Função que escreve um novo usuário no bd
+  
+  if(!email){ 
     firebase.database().ref('lojista/').push().set({
-      username: name,
-      email: email,
-      profile_picture : imageUrl
-    });
+        username: name,
+        email: email,
+        profile_picture : imageUrl
+      });
+    }
   }
 
 passport.use(new GoogleStrategy({
@@ -25,8 +44,8 @@ passport.use(new GoogleStrategy({
     callbackURL: config.GoogleAuth.callbackURL
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log(profile);
-    writeUserData(profile.displayName, profile.emails[0], profile.photos[0].value)
+    //console.log(profile);
+    checkWriteLojista(profile.displayName, profile.emails[0].value, profile.photos[0].value);
     done(null, profile)
     
   }

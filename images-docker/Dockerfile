@@ -2,7 +2,7 @@ FROM node
 LABEL Ezequiel F
 #RUN mkdir /home/app
 #RUN npm install --global npm@3.7.5
-EXPOSE 80
+EXPOSE 8080
 #HOME = Variável de ambiente
 ENV HOME=/home/app
 #COPY package.json  $HOME/dezconto-site/

@@ -5,12 +5,12 @@ services:
       context: ./images-docker
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "80:8080"
   
     container_name: dezconto_site
     restart: always
     volumes:
       - ./dezconto-site:/home/app/dezconto-site
     
-    command: bash -c "npm install && npm start"
+    command: bash -c "npm rebuild && npm install && npm start"
   

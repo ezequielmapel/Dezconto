@@ -24,6 +24,7 @@ var lojistaRouter = require('./routes/lojista');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -34,7 +35,9 @@ app.use('/', indexRouter);
 app.use('/lojista', lojistaRouter);
 
 
-  
+app.get('/nao-autorizado', function(req, res){
+	res.render('not-auth');
+});  
 
 
 

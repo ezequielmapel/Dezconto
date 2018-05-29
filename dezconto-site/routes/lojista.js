@@ -3,14 +3,23 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var google = require('../config/google');
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
+var cookieParser = require('cookie-parser');
 
+router.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 router.use(passport.initialize());
 router.use(passport.session());
-
+router.use(cookieParser('keyboard cat'));
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
+
+
+
+
+
 router.get('/', function(req, res, next) {
+  
   res.render('lojista');
   
 });
@@ -36,11 +45,12 @@ router.get('/auth/google',
 ] }));
 
 router.get('/auth/google/callback', 
-  passport.authenticate('google', {failureRedirect: '/', successRedirect: '/lojista/homepage'}));
+  passport.authenticate('google', {failureRedirect: '/', successReturnToOrRedirect: '/lojista/homepage'}));
 
 
-router.get('/homepage', function(req, res){
-  res.render('account');
+router.get('/homepage', ensureLoggedIn('/lojista/auth/google'), function(req, res){
+  console.log(req.user);
+  res.render('account', {nomeLojista: req.user.displayName});
 });
 
 passport.serializeUser(function(user, done) {
