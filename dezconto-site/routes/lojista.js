@@ -10,7 +10,7 @@ router.use(require('express-session')({ secret: 'keyboard cat', resave: true, sa
 router.use(passport.initialize());
 router.use(passport.session());
 router.use(cookieParser('keyboard cat'));
-router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 
@@ -19,9 +19,13 @@ router.use(bodyParser.json());
 
 
 router.get('/', function(req, res, next) {
-  
   res.render('lojista');
   
+});
+
+router.get('/homepage/sair', function(req, res){
+	req.logout();
+	res.redirect('/lojista');
 });
 
 
@@ -37,7 +41,7 @@ router.post('/cadastro', function(req, res){
 });
 
 
-
+// Autenticação do Google
 router.get('/auth/google',
   passport.authenticate('google', {  scope: [
     'https://www.googleapis.com/auth/userinfo.profile',
@@ -45,13 +49,9 @@ router.get('/auth/google',
 ] }));
 
 router.get('/auth/google/callback', 
-  passport.authenticate('google', {failureRedirect: '/', successReturnToOrRedirect: '/lojista/homepage'}));
+  passport.authenticate('google', {failureRedirect: '/', successReturnToOrRedirect: '/lojista/homepage/'}));
 
 
-router.get('/homepage', ensureLoggedIn('/lojista/auth/google'), function(req, res){
-  console.log(req.user);
-  res.render('account', {nomeLojista: req.user.displayName});
-});
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -60,5 +60,31 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });
+
+
+// HOMEPAGE do lojista
+
+
+
+router.get('/homepage', ensureLoggedIn('/lojista/auth/google'), function(req, res){
+  ///console.log(req.user);
+  res.render('account', {nomeLojista: req.user.displayName, imgProfile:req.user.photos[0].value});
+  res.end();
+});
+
+
+// GERENCIAR-CUPOM 
+router.post('/homepage/gerenciar-cupons', ensureLoggedIn('/lojista/auth/google'), function(req, res){
+	var nomeCupom = req.body.nomeCupom;
+
+		
+
+	res.redirect('/lojista/homepage');
+	
+});
+
+
+
+
 
 module.exports = router;

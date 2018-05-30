@@ -4,7 +4,7 @@ config = {
     'GoogleAuth':{
         "consumerKey": "568238419017-54lmrcerlak7rog3vku3obomm6fdnon7.apps.googleusercontent.com",
         "consumerSecret": "NcIlRhFCCkfaE8klPqGHh_0H",
-        "callbackURL": "http://localhost:8080/lojista/auth/google/callback"
+        "callbackURL": "http://localhost/lojista/auth/google/callback"
     },
 
     'Firebase':{

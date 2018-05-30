@@ -23,7 +23,7 @@
 		<div class="row mid">
 			<div class="col-sm-2 menu">
                 <div class="profile">
-                    <img src="/images/market.png" class="img_profile">
+                    <img src="<%= imgProfile %>" class="img_profile">
                     Bem vindo<br> <span> <%= nomeLojista %> </span>
                 </div>
 				<ul>
@@ -55,55 +55,58 @@
                     <div class="row title">GERENCIAR CUPONS</div>
                     <div class="row resize-font">
                         <div class="col-sm-5">
-                            Nome do Cupom:<input class="w3-input w3-border">
+				<form name="gerenciarCupons" action="/lojista/homepage/gerenciar-cupons" method="post">
+                            Nome do Cupom:<input name="nomeCupom" class="w3-input w3-border">
+<button type="submit" >GERAR CUPOM</button></form>
                             Descrição do Cupom:<input class="w3-input w3-border">
                             
                             Valor do Cupom (%):
                             
-                            <form name="registrationForm">
+                            
                                 <div class="output">
                                     <output name="outcusto1" id="outcusto1" class="output">10</output>
                                 </div>
                                 <input type="range" id='custo1' name='custo1' min="4" max="99" value="10" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
-                            </form>
+                            
                         </div>
                         <div class="col-sm-1"></div>
                         <div class="col-sm-5">
                             Quantidade de Cupons:
                             
-                            <form name="registrationForm">
+                            
                                 <div class="output">
                                     <output name="outcusto1" id="outcusto1" class="output">100</output>
                                 </div>
                                 <input type="range" id='custo1' name='custo1' min="1" max="500" value="30" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
-                            </form>
+                            
                             <br>
                             Validade da Promoção (dias):
                             
-                            <form name="registrationForm">
+                            
                                 <div class="output">
                                     <output name="outcusto1" id="outcusto1" class="output">30</output>
                                 </div>
                                 <input type="range" id='custo1' name='custo1' min="1" max="90" value="30" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
-                            </form>
+                            
                             <br>
                             Validade de cada Cupom (dias):
                             
-                            <form name="registrationForm">
+                            
                                 <div class="output">
                                     <output name="outcusto1" id="outcusto1" class="output">30</output>
                                 </div>
                                 <input type="range" id='custo1' name='custo1' min="1" max="90" value="30" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
-                            </form>
+                            
                             
                             <label class="container">Estou ciente sobre os <a href="#">termos de uso</a>
 						  	   <input type="checkbox">
 						  	   <span class="checkmark"></span>
                             </label>
+			
                         </div>
                         <div class="col-sm-1"></div>
                             <div class="row options">
-                                <button>GERAR CUPOM</button>
+                              
                                 <button class="btton2">EXIBIR CUPONS CRIADOS</button>
                             </div>
                     </div>
