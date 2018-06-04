@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dezconto - Seu companheiro de compras!</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Dezconto - Seu companheiro de compras!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/stylesheets/style-account.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style-account.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container-fluid font">	
-		<div class="row header">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-2">
-				<img src="/images/logo2.png" class="img_logo">
-			</div>
-			<div class="col-sm-6"></div>
-			<div class="col-sm-2">
-                <a  href="/lojista/homepage/sair"><button type="button" class="btt_entrar">SAIR</button></a>										
-			</div>			
-			<div class="col-sm-1"></div>
-		</div>
-		<div class="row mid">
-			<div class="col-sm-2 menu">
+    <div class="container-fluid font">  
+        <div class="row header">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <img src="/images/logo2.png" class="img_logo">
+            </div>
+            <div class="col-sm-6"></div>
+            <div class="col-sm-2">
+                 <a  href="/lojista/homepage/sair"><button type="button" class="btt_entrar">SAIR</button></a>                                   
+            </div>          
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="row mid">
+            <div class="col-sm-2 menu">
                 <div class="profile">
                     <img src="<%= imgProfile %>" class="img_profile">
-                    Bem vindo<br> <span> <%= nomeLojista %> </span>
+                    Bem vindo!<br> <span id="nameUser"><%= nomeLojista %></span>
                 </div>
-				<ul>
-					<li class="opção selected" onclick="currentDiv(1)">Calculadora</li>
-					<li class="opção selected" onclick="currentDiv(2)">Cupons</li>
-					<li class="opção selected" onclick="currentDiv(3)">Configurações</li>
-				</ul>
-			</div>
-			<div class="col-sm-8 focus">
+                <ul>
+                    <li class="opção selected" onclick="currentDiv(1)">Calculadora</li>
+                    <li class="opção selected" onclick="currentDiv(2)">Cupons</li>
+                    <li class="opção selected" onclick="currentDiv(3)">Configurações</li>
+                </ul>
+            </div>
+            <div class="col-sm-8 focus">
                 <div class="mySlides">
                     <div class="row title">CALCULADORA</div>
                     <div class="row">
@@ -43,9 +45,10 @@
                         </div>
                         <div class="col-sm-1"></div>
                         <div class="col-sm-5">
+                            
                             Valor <span>Dez</span>conto (R$):
                             <div class="valor_dez">100<span>,00</span></div>
-                            <button>CONFIRMAR</button>
+                            <button style="display: block">CONFIRMAR</button>
                         </div>
                     </div>
                 </div>
@@ -55,59 +58,105 @@
                     <div class="row title">GERENCIAR CUPONS</div>
                     <div class="row resize-font">
                         <div class="col-sm-5">
-				<form name="gerenciarCupons" action="/lojista/homepage/gerenciar-cupons" method="post">
+                        <form name="formGerenciarCupons" id="formGerenciarCupons" action="/lojista/homepage/gerenciar-cupons" method="post">
                             Nome do Cupom:<input name="nomeCupom" class="w3-input w3-border">
-<button type="submit" >GERAR CUPOM</button></form>
-                            Descrição do Cupom:<input class="w3-input w3-border">
-                            
-                            Valor do Cupom (%):
+                            Descrição do Cupom:<input name="desCupom" class="w3-input w3-border">
                             
                             
-                                <div class="output">
-                                    <output name="outcusto1" id="outcusto1" class="output">10</output>
-                                </div>
-                                <input type="range" id='custo1' name='custo1' min="4" max="99" value="10" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
+                            Categoria do Cupom:
+                            
+                            <div class="custom-select">
+                                <select placeholder name="catCupom">
+                                    <option value="0">Selecione a Categoria</option>
+                                    <option value="Alimentício">Alimentício</option>
+                                    <option value="Cosmético">Cosmético</option>
+                                    <option value="Farmacêutico">Farmacêutico</option>
+                                    <option value="Vestuário">Vestuário</option>
+                                    <option value="Multiplas Categorias">Multiplas Categorias</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                            </div>            
+                            
                             
                         </div>
                         <div class="col-sm-1"></div>
                         <div class="col-sm-5">
-                            Quantidade de Cupons:
-                            
+                            Valor do Cupom (%):                            
                             
                                 <div class="output">
-                                    <output name="outcusto1" id="outcusto1" class="output">100</output>
+                                    <output name="outcusto1" id="outcusto1" class="output">4</output>
                                 </div>
-                                <input type="range" id='custo1' name='custo1' min="1" max="500" value="30" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
+                                <input type="range" id='custo1' name='valCupom' min="4" max="99" value="4" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
+                           
+
+                            
+                            Quantidade de Cupons:
+
+
+                            
+                                <div class="output">
+                                    <output name="outcusto2" id="outcusto2" class="output">1</output>
+                                </div>
+                                <input type="range" id='custo2' name='qtdCupom' min="1" max="500" value="1" class="slider" id="myRange" oninput="outcusto2.value = custo2.value">
                             
                             <br>
                             Validade da Promoção (dias):
                             
                             
                                 <div class="output">
-                                    <output name="outcusto1" id="outcusto1" class="output">30</output>
+                                    <output name="outcusto3" id="outcusto3" class="output">30</output>
                                 </div>
-                                <input type="range" id='custo1' name='custo1' min="1" max="90" value="30" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
-                            
+                                <input type="range" id='custo3' name="validadePromo" min="1" max="90" value="30" class="slider" id="myRange" oninput="outcusto3.value = custo3.value">
+                          
                             <br>
                             Validade de cada Cupom (dias):
                             
-                            
+                         
                                 <div class="output">
-                                    <output name="outcusto1" id="outcusto1" class="output">30</output>
+                                    <output name="outcusto4" id="outcusto4" class="output">30</output>
                                 </div>
-                                <input type="range" id='custo1' name='custo1' min="1" max="90" value="30" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
-                            
+                                <input type="range" id='custo4' name='valCadaCupom' min="1" max="90" value="30" class="slider" id="myRange" oninput="outcusto4.value = custo4.value">
+                          
                             
                             <label class="container">Estou ciente sobre os <a href="#">termos de uso</a>
-						  	   <input type="checkbox">
-						  	   <span class="checkmark"></span>
+                               <input type="checkbox">
+                               <span class="checkmark"></span>
                             </label>
-			
+
+                         <button id="btnGerarCupom" type="submit">GERAR CUPOM</button>
+                        </form>
+
                         </div>
                         <div class="col-sm-1"></div>
-                            <div class="row options">
-                              
-                                <button class="btton2">EXIBIR CUPONS CRIADOS</button>
+                            <br><div class="row options">
+                               
+                                <button class="btton2" button type="button" data-toggle="modal" data-target="#myModal">EXIBIR CUPONS CRIADOS</button>
+                                <div class="modal fade" id="myModal" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">ENTRAR</h4>
+                                            </div>
+                                            <div class="modal-body">
+                            
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="control-label">Email:</label>
+                                                        <input type="text" class="form-control" id="emailLogin" required="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="control-label">Senha:</label>
+                                                        <input type="password" class="form-control" id="senhaLogin" required="">
+                                                    </div>
+                            
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                <button type="button" id="logar" class="btn btn-success">Entrar</button>
+                                            </div>
+                                        </div>                                              
+                                    </div>
+                                </div>      
                             </div>
                     </div>
                 </div>
@@ -129,40 +178,141 @@
                         <div class="col-sm-5">
                             Estado:<input class="w3-input w3-border w3-animate-input">
                             Cidade:<input class="w3-input w3-border w3-animate-input">
+                            Nome da Loja:<input class="w3-input w3-border w3-animate-input">
+                            Telefone:<input class="w3-input w3-border w3-animate-input">
                         </div>
                         <div class="col-sm-1"></div>
                         <div class="col-sm-5">
                             Bairro:<input class="w3-input w3-border w3-animate-input">
                             Endereço:<input class="w3-input w3-border w3-animate-input">
+                            CNPJ:<input class="w3-input w3-border w3-animate-input">
+                            Categoria da Loja:
+                            
+                            <div class="custom-select">
+                                <select>
+                                    <option value="0">Selecione a Categoria</option>
+                                    <option value="1">Vestuario</option>
+                                    <option value="2">Drogaria</option>
+                                    <option value="3">Cosmético</option>
+                                    <option value="4">Conveniência</option>
+                                    <option value="5">Alimenticia</option>
+                                    <option value="6">Multiplas Categorias</option>
+                                    <option value="7">Outro</option>
+                                </select>
+                            </div>
+                            
+                            
+<!-- //////////////////////////////////////// SCRIPT DO SELECT \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+                            
+                            <script>
+                                var x, i, j, selElmnt, a, b, c;
+                                x = document.getElementsByClassName("custom-select");
+                                for (i = 0; i < x.length; i++) {
+                                    selElmnt = x[i].getElementsByTagName("select")[0];
+
+                                    a = document.createElement("DIV");
+                                    a.setAttribute("class", "select-selected");
+                                    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+                                    x[i].appendChild(a);
+                                    
+                                    b = document.createElement("DIV");
+                                    b.setAttribute("class", "select-items select-hide");
+                                    for (j = 0; j < selElmnt.length; j++) {
+                                        
+                                        c = document.createElement("DIV");
+                                        c.innerHTML = selElmnt.options[j].innerHTML;
+                                        c.addEventListener("click", function(e) {
+                                            var y, i, k, s, h;
+                                            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                                            h = this.parentNode.previousSibling;
+                                            for (i = 0; i < s.length; i++) {
+                                                if (s.options[i].innerHTML == this.innerHTML) {
+                                                    s.selectedIndex = i;
+                                                    h.innerHTML = this.innerHTML;
+                                                    y = this.parentNode.getElementsByClassName("same-as-selected");
+                                                    for (k = 0; k < y.length; k++) {
+                                                        y[k].removeAttribute("class");
+                                                    }
+                                                    this.setAttribute("class", "same-as-selected");
+                                                    break;
+                                                }
+                                            }
+                                            h.click();
+                                        });
+                                        b.appendChild(c);
+                                    }
+                                    x[i].appendChild(b);
+                                    a.addEventListener("click", function(e) {
+                                        e.stopPropagation();
+                                        closeAllSelect(this);
+                                        this.nextSibling.classList.toggle("select-hide");
+                                        this.classList.toggle("select-arrow-active");
+                                    });
+                                }
+                                function closeAllSelect(elmnt) {
+                                    var x, y, i, arrNo = [];
+                                    x = document.getElementsByClassName("select-items");
+                                    y = document.getElementsByClassName("select-selected");
+                                    for (i = 0; i < y.length; i++) {
+                                        if (elmnt == y[i]) {
+                                            arrNo.push(i)
+                                        } else {
+                                            y[i].classList.remove("select-arrow-active");
+                                        }
+                                    }
+                                    for (i = 0; i < x.length; i++) {
+                                        if (arrNo.indexOf(i)) {
+                                            x[i].classList.add("select-hide");
+                                        }
+                                    }
+                                }
+                                document.addEventListener("click", closeAllSelect);
+
+
+                                     console.log("VALUE: " + $('#custo1').val);
+
+                                
+                                
+
+                            </script>
+                                                    
+                            
+<!-- //////////////////////////////////////// FIM DO SCRIPT DO SELECT \\\\\\\z\\\\\\\\\\\\\\\\\\ -->
+                            
+                            
+                            
+                            
+                            
                         </div>
                         <div class="col-sm-1"></div>
                         <div class="row">
                             <button>SALVAR ALTERAÇÕES</button>
                         </div>
+                        
                     </div>
                 </div>
-			</div>
-			<div class="col-sm-2"></div>
-		</div>
-		<div class="row footer">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
-				<div class="row">
-					<div class="col-sm-10">
-				 		<div class="copy">
-							&copy; Copyright 2018 WiRED DSGN
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<img src="/images/logo-footer.png" class="logo_footer">
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-1"></div>			
-		</div>
-	</div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="row footer">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <div class="copy">
+                            &copy; Copyright 2018 WiRED DSGN
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <img src=/images/logo-footer.png" class="logo_footer">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>            
+        </div>
+    </div>
     
-    
+    <script src="account.js"></script>
     <script>
         var slideIndex = 1;
         showDivs(slideIndex);
@@ -187,6 +337,21 @@
             x[slideIndex-1].style.display = "block";  
             dots[slideIndex-1].className += " selected";
         }
+
+        var expanded = false;
+
+        function showCheckboxes() {
+          var checkboxes = document.getElementById("checkboxes");
+          if (!expanded) {
+            checkboxes.style.display = "block";
+            expanded = true;
+          } else {
+            checkboxes.style.display = "none";
+            expanded = false;
+          }
+        }
+
+        console.log(document.getElementById('one').checked);
 </script>
 </body>
 </html>

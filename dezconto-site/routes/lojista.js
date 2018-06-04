@@ -6,12 +6,17 @@ var google = require('../config/google');
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 var cookieParser = require('cookie-parser');
 
+// Require FireData
+var fireFun = require('../config/fireFun');
+
 router.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 router.use(passport.initialize());
 router.use(passport.session());
 router.use(cookieParser('keyboard cat'));
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
+
+
 
 
 
@@ -67,7 +72,6 @@ passport.deserializeUser(function(user, done) {
 
 
 router.get('/homepage', ensureLoggedIn('/lojista/auth/google'), function(req, res){
-  ///console.log(req.user);
   res.render('account', {nomeLojista: req.user.displayName, imgProfile:req.user.photos[0].value});
   res.end();
 });
@@ -75,11 +79,26 @@ router.get('/homepage', ensureLoggedIn('/lojista/auth/google'), function(req, re
 
 // GERENCIAR-CUPOM 
 router.post('/homepage/gerenciar-cupons', ensureLoggedIn('/lojista/auth/google'), function(req, res){
-	var nomeCupom = req.body.nomeCupom;
+  var nomeCupom = req.body.nomeCupom;
+  var desCupom = req.body.desCupom;
+  var catCupom = req.body.catCupom;
+  var valCupom = req.body.valCupom;
+  var qtdCupom = req.body.qtdCupom;
+  var validadePromo = req.body.validadePromo;
+  var validadeCupom = req.body.valCadaCupom;
+ 
+  var idCupom = fireFun.gerarIdCupom(req.user.displayName, nomeCupom, valCupom);
 
-		
-
-	res.redirect('/lojista/homepage');
+  //console.log(nomeCupom, desCupom, catCupom, valCupom, qtdCupom, validadePromo, validadeCupom);
+  fireFun.writeCupom(idCupom, nomeCupom, desCupom, catCupom, valCupom, qtdCupom, validadePromo, validadeCupom);
+  
+  // Ligação lojista_cupm
+  var idLoja = req.user.id;
+  fireFun.writeLojaCupom(idLoja, idCupom, nomeCupom, desCupom, qtdCupom, valCupom, validadeCupom, validadePromo);
+  
+  // Atualizando o cupom criado no lojista
+  fireFun.updateCupom(idCupom, idLoja);
+  res.redirect('/lojista/homepage');
 	
 });
 

@@ -1,0 +1,185 @@
+@charset "utf-8";
+/*Documento CSS*//*Defina a cor do conteúdo*/
+.font{
+	font-family: Open Sans;
+}
+.header{
+	background:linear-gradient(to bottom right, #3B1A61,#2E154A);
+	padding: 10px 0;
+}
+.img_logo{
+	width: 125px;
+	height: auto;
+	vertical-align: middle;
+}
+.lojista{
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+.loj a{
+	text-decoration: none;
+	color: #c6bb00;
+	font-weight: 600;		
+}
+.entrar{
+	color: #c6bb00;
+	font-size: 0.9em;
+	font-weight: 600;
+	padding-left: 10%;
+}
+.btt_entrar{
+	background-color: #210d39;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 8px;	
+}
+.center{
+	background-image: url(images/bag-electronics.jpg);
+	background-position: center;
+	background-size: 110% auto;
+	background-repeat: no-repeat;
+	height: 531.75px;
+}
+.img_center{
+	width: auto;
+	height: 531.75px;
+	margin: auto;	
+	background: linear-gradient(to bottom right, rgba(112, 40, 228,0.7),rgba(229, 178, 202,0.7));
+}
+
+.title_eco{
+	font-size: 85px;
+	font-weight: 900;
+	color: #EEE000;
+	padding-top: 7%;
+	padding-left: 5%;
+}
+.subt_eco{
+	color: #FFF;
+	font-size: 18px;
+	text-align: center;
+	font-weight: normal;
+}
+.subt_eco span{
+	font-weight: bold;
+}
+.cel{
+	width: 90%;
+	padding-top: 100px;
+	height: auto;
+	opacity: 1;
+	position: absolute;
+}
+.center2{
+	background:linear-gradient(to bottom right, #E6DEE9, #FDFBFB);
+}
+.margin_gplay{
+	margin-top: -1%;
+}
+.border_play{
+	border-left: 13px solid #eee000;
+}
+/*.border_play{
+	background-color: #eee000;
+	width: 15px;
+	height: 55px;
+	display: inline-block;
+}*/
+.img_gplay{
+	width: 80px;
+	height: auto;
+	padding-left: 15%;
+}
+.margin_baixeja{
+	padding: 0;
+}
+.baixeja{
+	font-size: 1.5em;
+	font-weight: 900;
+	color: #40295b;
+	display: inline-block;
+}
+.margin_balao{
+	margin: 10% auto 8% auto;
+	border: none;
+	border-radius: 20px 20px 0 20px;
+	background-color: #a1f8ca;
+	box-shadow: 8px 8px 50px #c2bcc4;
+}
+#balao .content_balao{
+	padding: 8%;
+}
+#balao .img_cara1{
+	width: 60px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+#balao .title{
+	color: #9ba09d;
+	font-size: 1.5em;
+	font-weight: 900;
+	display: inline-block;
+}
+#balao .subtitle{
+	color: #a9c9b8;
+}
+#balao .text{
+	text-align: center;
+	padding-top: 4%;
+	color: #789184;
+}
+.quem{
+	border-left: 13px solid #eee000;
+	padding-left: 0.5%;
+	margin-top: 5%;
+	font-weight: 900;
+	color:#615f98;
+	font-size: 3em;
+}
+.somos{
+	color:#615f98;
+	font-size: 1.5em;
+	font-weight: 900;
+	padding-top: 2%;
+	padding-left: 4%;
+	padding-right: 2%;
+	margin-bottom: 8%;
+	text-align: center;
+}
+.lojas_cad{
+	color: #615f98;
+	font-weight: 900;
+	font-size: 2.5em;
+	text-align: center;
+	margin-top: -1.7%;
+}
+.center3{
+	background-color: #faf5ff;
+}
+.margin_lojas{
+	padding-top: 5%;
+}
+.img_lojas{
+	width: 100%;
+}
+.nome_loja{
+	background-color: #eeeeee;
+	color: #64629a;
+	text-align: center;
+	font-size: 1.5em;
+	font-weight: 900;
+	margin-bottom: 20%;
+}
+.footer{
+	background-color: #434f5d;
+}
+.copy{
+	padding-top: 4%;
+	padding-bottom: 4%;
+	font-size: 1.2em;
+	color: #c2ba21;
+}
+.logo_footer{
+	width: 100%;
+	padding-top:15%;
+}

@@ -1,0 +1,556 @@
+@charset "utf-8";
+/*Documento CSS*//*Defina a cor do conteúdo*/
+br{
+    margin: 7px 0 0 0;
+}
+.font{
+	font-family: Open Sans, helvetica, tahoma, arial;
+}
+.col-sm-2{
+	padding: 0;
+}
+.header{
+	background:linear-gradient(to bottom right, #f6d364,#fdc585);
+	padding: 10px 0;
+}
+.img_logo{
+	width: 125px;
+	height: auto;
+	vertical-align: middle;
+}
+.entrar{
+	color: #240860;
+	font-size: 0.9em;
+	font-weight: 600;
+	padding-left: 10%;
+}
+.btt_entrar{
+	background-color: #f6b363;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 8px;
+	float: right;
+}
+.mid .menu{
+	background-color: #fdc585;
+}
+.mid .profile{
+    background-color:#f9bb75; 
+    color: black;
+    padding: 20px 0 10px;
+    text-align: center;
+    border-right: 5px #411363 solid;
+
+}
+.mid .profile span{
+    font-weight: 700;
+    font-size: 17px;
+}
+.mid .img_profile{
+    width: 22%;
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 100px;
+    border: #411363 1px solid;
+    opacity: .9;
+}
+.mid .img_profile:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+.mid ul{
+	list-style: none;
+	margin: 10px 0;
+	padding: 0;
+	font-weight: 700;
+	color:#af9ebc;		
+	height: 105vh;
+}
+.mid li{
+	margin:10px 0;
+	text-align: center;
+	padding: 15px;
+    font-size: 15px;
+}
+.selected{
+	border-right: 5px #411363 solid;
+	color: #411363;
+	background-color: #ffb96b;
+}
+
+.mid li:hover{
+	background-color: #f9bb75;
+	cursor: pointer;
+}
+
+.focus{
+	margin: 1% 0 0 5%;
+    font-size: 25px;
+}
+.focus .title{
+    border-left: 10px #411363 solid;
+	color: black;
+	font-size: 60px;
+	font-weight: 700;
+	margin-bottom: 5%;
+	margin-left: -4%;
+    padding: 0 18px;
+    height: 80px;
+}
+.focus span{
+    font-weight:700;
+}
+.focus .valor_dez{
+    background: #fff3ce;
+    font-size: 70px;
+    text-align: center;
+    width: 100%;
+    color:#411363;
+    
+}
+.focus .valor_dez span{
+    font-weight: 200;
+}
+
+.focus button{
+    color: #c2ba21;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #240860;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 30px;
+    font-size: 18px;       
+    font-weight: 700;
+}
+.options{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    margin-bottom: 5em;
+    font-size: 15px;
+    color: #240860;        
+    font-weight: 700;
+}
+.options button{
+    display: block;
+    float: right;    
+    font-size: 15px;
+    color: #c2ba21;
+    background-color: #240860;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 30px;
+}
+.options .btton2{
+    display: block;
+    float: left;
+    background-color: white;
+    color: #240860;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 10px;
+}
+
+
+
+.image_c{
+    font-size: 20px;
+    margin: 0 0 60px 20px;
+}
+
+.resize-font{
+    font-size: 20px;
+}
+remargin{
+    margin-bottom: 20px;
+}
+
+
+
+.footer{
+	background-color: #434f5d;
+}
+.copy{
+	padding-top: 4%;
+	padding-bottom: 4%;
+	font-size: 1.2em;
+	color: #c2ba21;
+}
+.logo_footer{
+	width: 100%;
+	padding-top:15%;
+}
+
+
+
+
+
+
+
+/** custom imput */
+
+
+.w3-input{
+	padding:1px 15px;
+	margin: 10px auto 55px auto;
+	display:flex;
+	border:none;
+	border-bottom:1px solid #ccc;
+	width:45%;
+	height: 50px;
+
+	text-align: center;
+	font-weight: 600;
+	font-size: 18px;
+
+	transition:all 0.4s ease-in-out;
+}
+.w3-border{
+	border-bottom:4px solid #b8b8b8!important;
+}
+
+.w3-input:focus{
+	width:95%!important;
+}
+
+
+
+
+
+
+
+/* slide bar */
+
+.slidecontainer {
+    width: 50%;
+    margin: 15px auto 0;
+    font-size: 13px;
+    text-align: center;
+}
+
+.slider {
+    width: 25px;
+    height: 25px;
+    background: none;
+    outline: none;
+    opacity: 0.7;
+    -moz-transition: none;
+    transition: opacity .2s;
+    margin: 5px auto;
+    
+}
+
+input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+    
+    /*fix for FF unable to apply focus style bug */
+    border: 1px solid white;
+    
+    /*required for proper track sizing in FF*/
+    width: 300px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: goldenrod;
+    margin-top: -4px;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+input[type=range]::-moz-range-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: goldenrod;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+input[type=range]::-ms-track {
+    width: 300px;
+    height: 5px;
+    
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+    
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+
+    /*remove default tick marks*/
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: #777;
+    border-radius: 10px;
+}
+input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 10px;
+}
+input[type=range]::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: goldenrod;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: #888;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
+
+.slider:hover {
+    opacity: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #2b1063;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 5px;
+    height: 25px;
+    background: #2b1063;
+    cursor: pointer;
+}
+.output{
+    margin: auto;
+}
+.output output{
+    display: block;
+    color: #2b1063;
+    font-size: 25px;
+    font-weight: 700;
+    height: 40px;
+    width: 12%;
+    margin-top: 4px;
+    padding-top: 0px;
+    background: #fff2cc;
+    border:none;
+    border-radius: 8px;
+    text-align: center;
+}
+.output span{
+    font-size: 14px;
+    font-weight: 200;
+    color: #2b1063;
+}
+
+
+
+
+
+
+/** CHECKBOX CUSTOM */
+.container {
+    position: relative;
+    padding-left: 35px;
+    width: 80%;
+    margin: 20px 0 20px 100px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+.container2:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2b1063;
+}
+.container2 input:checked ~ .checkmark {
+    background-color: #2b1063;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+.container2 input:checked ~ .checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 7px;
+    width: 5px;
+    height: 10px;
+    border: solid #f6d364;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+.reposition{
+	float: left;
+	display: block;
+	width: 50%;
+	margin: 20px 0 0 43%;
+}
+
+.reposition2{
+	float: left;
+	display: inline-block;
+	width: 10%;
+	margin-right: 50px; 
+	margin-bottom: -10px;
+}
+.reposition3{
+	float: left;
+	display: block;
+	width: 40%;
+	margin-bottom: -10px;
+}
+.ajust{
+    margin-left:20%;
+    width: 80%;
+}
+
+
+
+
+
+
+
+
+
+
+/*Select custom*/
+
+/*the container must be positioned relative:*/
+.custom-select {
+    
+    margin-top: 20px;
+    margin-bottom: 55px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 45%;
+}
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+.select-selected {
+    font-size: 15px;
+    background-color: #2b1063;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected::after{
+  position: absolute;
+  content: "";
+  top: 18px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #f6d364 transparent transparent transparent;
+}
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #f6d364 transparent;
+  top: 7px;
+}
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #f6d364;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+/*style items (options):*/
+.select-items {
+    border-radius: 0 0 8px 8px;
+    font-size: 13px;
+  position: absolute;
+  background-color: #37177a;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}

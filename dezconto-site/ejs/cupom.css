@@ -1,0 +1,60 @@
+.container_c{
+    width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    font-family: open sans;
+}
+.nome{
+    width: 500px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #dbdbdb;
+}
+.foto{
+    background-color: #fff;
+    float: left;
+    display: block;
+    height: 100px;
+    width: 100px;
+}
+.promo{
+    background-color: #ededed;
+    float: left;
+    height: 82px;
+    width: 398px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 25px;
+    padding-top: 18px;
+}
+.promo span{
+    
+    font-size: 15px;
+    font-weight: 200;
+}
+.acpt{
+    background-color: #bdffb5;
+    padding-top: 28px;
+    float: right;
+    width: 150px;
+    height: 117px;
+    font-size: 12px;
+    text-align: center;
+    border-left: 2px black dashed;
+}
+.acpt span{
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 700;
+}
+.apagar{
+    font-weight: 700;
+    border: none;
+    background-color: #ff6363;
+    height: 25px;
+    width: 100%;
+    cursor: pointer;
+}

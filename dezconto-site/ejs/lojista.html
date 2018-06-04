@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dezconto - Seu companheiro de compras!</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style-lojista.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container-fluid font">	
+		<div class="row header">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-2">
+				<img src="images/logo2.png" class="img_logo">
+			</div>
+			<div class="col-sm-6"></div>
+			<div class="col-sm-2 ini"> 
+				<a href="index.html" >INICIO</a>				
+				<span class="entrar">
+					<button type="button" class="btt_entrar " data-toggle="modal" data-target="#myModal">ENTRAR</button> 
+				</span>
+				<div class="modal fade" id="myModal" role="dialog">
+				    <div class="modal-dialog">
+				       	<div class="modal-content">
+					        <div class="modal-header">
+					          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+					          	<h4 class="modal-title">ENTRAR</h4>
+					        </div>
+					        <div class="modal-body">
+					          	<form>
+					          		  <div class="form-row">
+									    <div class="form-group col-md-6">
+									      <label for="inputEmail4">Nome:</label>
+									      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+									    </div>
+									    <div class="form-group col-md-6">
+									      <label for="inputPassword4">Sobrenome:</label>
+									      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+									    </div>
+									  </div>								  
+						         	<div class="form-group">
+						            	<label for="recipient-name" class="control-label">CNPJ:</label>
+						            	<input type="text" class="form-control" id="emailLogin" required="">
+						          	</div>       	
+						       </form>
+					        </div>
+					        <div class="modal-footer">
+					          	<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+					            <button type="button" id="logar" class="btn btn-success">Entrar</button>
+					        </div>
+				      	</div>												
+					</div>
+				</div>													
+			</div>			
+			<div class="col-sm-1"></div>
+		</div>
+		<div class="row center">
+			<div class="img_center">
+				<div class="col-sm-6"></div>
+				<div class="col-sm-4 title_eco">
+					ANUNCIE
+					<div class="subt_eco">
+						cadastre-se e anuncie seu negócio conosco
+					</div>
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+		</div>
+		<div class="row center2">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<div class="row">
+					<div class="col-sm-4">
+						<img src="images/note.png" class="note">
+					</div>
+					<div class="col-sm-8">
+						<div class="title_note">
+							SIMPLES E FACIL
+						</div>
+						<div class="subt_note">
+							cadastre cupons, valide-os, veja estatisticas<br>
+							tudo em um unico lugar
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+		<div class="row espaço">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<div class="cadastro">
+					CADASTRE-SE
+				</div>
+				<div class="row">
+					<form id="cadLoj">
+						<div class="col-sm-12 centralize">
+							<input class="type1" id="nome" placeholder="NOME">
+							<label>     </label>
+							<input class="type1" id="sobrenome" placeholder="SOBRENOME"><br>
+							<input class="type2" id="email" placeholder="EMAIL">
+							<input class="type2" type="password" id="senha" placeholder="SENHA">
+							
+							<div class="reposition">
+								<label class="container reposition2">CNPJ
+		 							<input id="cnpj" type="radio" name="radio">
+									<span class="checkmark"></span>
+								</label>
+								<label class="container reposition2">CPF
+									<input id="cpf" type="radio" name="radio">
+									<span class="checkmark"></span>
+								</label>
+							</div>
+							
+							<input class="type2" data-mask="00.000.000/0000-00" id="cnpjInput" placeholder="CNPJ">
+							<input class="type2 cpf-mask" id="cpfInput" placeholder="CPF">
+	                        <div class="slidecontainer">
+	                            Informe a % de desconto que estaria disposto a oferecer <b>permanentemente</b> aos consumidores:
+	                            
+	                                <div class="output">
+	                                    <output name="outcusto1" id="outcusto1" class="output">5</output><span>por cento (%)</span>
+	                                </div>
+	                                <input type="range" id='custo1' name='custo1' min="3" max="15" value="5" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
+	                            
+	                            Para mais informações, leia os <a href="#"><b>termos de uso</b></a>
+	                        </div>
+						</div>
+						<div class="col-sm-12 alinhamento ajust">
+	                        <label class="container reposition3">Li e concordo com os <a href="#">termos de uso</a>
+							  	<input type="checkbox" id="termosUso">
+							  	<span class="checkmark"></span>
+							</label>
+							<label class="container reposition3">Desejo receber novidades por email
+							 	 <input type="checkbox" id="novEmail">
+							 	 <span class="checkmark"></span>
+							</label>
+						</div>
+	                    <div class="centralize xtra">
+	                        <button type="submit">CONFIRMAR E ENVIAR</button>
+	                    </div>						
+					</form>					
+				</div>
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+		<div class="row footer">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<div class="row">
+					<div class="col-sm-10">
+				 		<div class="copy">
+							&copy; Copyright 2018 WiRED DSGN
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<img src="images/logo-footer.png" class="logo_footer">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-1"></div>			
+		</div>
+	</div>
+	<script src="bundle.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+	
+</body>
+</html>

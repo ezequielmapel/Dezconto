@@ -11,32 +11,32 @@ firebase.initializeApp(configfb);
 var database = firebase.database();
 
 
-function checkWriteLojista(name, email, imageUrl){
+function checkWriteLojista(reqId, name, email, imageUrl, termosDeUso, novidades){
   // Função pra checar se o usuário existe e escrevendo caso não
+  var data = new Date();
+  dataS = data.getUTCDate() + '-' + (data.getUTCMonth()+1) + '-' + data.getUTCFullYear();
+  
   var nLoj = firebase.database().ref('lojista/');
-  nLoj.orderByChild('email').equalTo(email).once("value", function(snapshot){
+  nLoj.orderByChild('emailLojista').equalTo(email).once("value", function(snapshot){
     if(!snapshot.val()){
-      firebase.database().ref('lojista/').push().set({
-        username: name,
-        email: email,
-        profile_picture : imageUrl
+      console.log("Escreveu");
+      firebase.database().ref('lojista/'+reqId).set({
+        nomeLojista: name,
+        emailLojista: email,
+        profile_picture : imageUrl,
+        descPerm: null,
+        termosDeUso: false,
+        novidades:false,
+        cnpj: null,
+        cupom: null,
+        data: dataS
+
      });
     }
   });
   
-}
-
-function writeUserData(name, email, imageUrl) {
-  // Função que escreve um novo usuário no bd
   
-  if(!email){ 
-    firebase.database().ref('lojista/').push().set({
-        username: name,
-        email: email,
-        profile_picture : imageUrl
-      });
-    }
-  }
+}
 
 passport.use(new GoogleStrategy({
     clientID: config.GoogleAuth.consumerKey,
@@ -44,8 +44,7 @@ passport.use(new GoogleStrategy({
     callbackURL: config.GoogleAuth.callbackURL
   },
   function(accessToken, refreshToken, profile, done) {
-    //console.log(profile);
-    checkWriteLojista(profile.displayName, profile.emails[0].value, profile.photos[0].value);
+    checkWriteLojista(profile.id, profile.displayName, profile.emails[0].value, profile.photos[0].value, true, true);
     done(null, profile)
     
   }

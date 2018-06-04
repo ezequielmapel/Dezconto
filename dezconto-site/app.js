@@ -41,8 +41,8 @@ app.get('/nao-autorizado', function(req, res){
 
 
 
-app.listen('8080', function(){
-	console.log("Listen on 8080");
+app.listen('80', function(){
+	console.log("Listen on 80");
 });
 
 module.exports = app;
