@@ -79,6 +79,11 @@ public class User implements Serializable{
         this.userId = userId;
     }
 
+    public User(String nome, String email){
+        this.nome = nome;
+        this.email = email;
+    }
+
     public User(String nome, String email, String userId, String imagePerfil){
         this.nome = nome;
         this.email = email;

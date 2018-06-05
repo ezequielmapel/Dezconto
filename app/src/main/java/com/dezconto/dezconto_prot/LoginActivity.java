@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         // GOOGLE LOGIN
         //.requestIdToken(getString(R.string.default_web_client_id))
-        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestProfile().build();
 
         googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, googleSignInOptions).build();
 
@@ -138,13 +138,15 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 // signed in user can be handled in the listener.
                 if (!task.isSuccessful()) {
                     Log.w("SignIn", "signInWithEmail:failed", task.getException());
-                    Toast.makeText(LoginActivity.this, "Não foi possível conectar!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Email ou Senha incorretos!", Toast.LENGTH_SHORT).show();
                 } else {
                     FirebaseUser account = task.getResult().getUser();
                     String email = account.getEmail();
                     String nome = account.getDisplayName();
                     String id = account.getProviderId();
                     String urlphoto = String.valueOf(account.getPhotoUrl());
+
+
 
                     //User infoUser = new User(nome, email, id, urlphoto);
                     infoUser = new User(nome, email, id, urlphoto);
@@ -232,9 +234,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             GoogleSignInAccount account = result.getSignInAccount();
             // gets informações
             String email = account.getEmail();
-            String nome = account.getDisplayName();
             String id = account.getId();
             String urlphoto = String.valueOf(account.getPhotoUrl());
+            String nome = account.getDisplayName();
+
+
 
             //User infoUser = new User(nome, email, id, urlphoto);
             this.infoUser = new User(nome, email, id, urlphoto);
