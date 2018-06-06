@@ -2,17 +2,22 @@
 <html>
 <head>
 	<title>Dezconto - Seu companheiro de compras!</title>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/stylesheets/style-lojista.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+	<link rel="stylesheet" type="text/css" href="stylesheets/style-lojista.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+
+    
 </head>
 <body>
 	<div class="container-fluid font">	
 		<div class="row header c_botoes">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-2">
-				<img src="/images/logo2.png" class="img_logo">
+				<img src="images/logo2.png" class="img_logo">
 			</div>
 			<div class="col-sm-6"></div>
 			<div class="col-sm-3">
@@ -62,13 +67,20 @@
 					CADASTRE-SE
 				</div>
 				<div class="row">
-					<form action="lojista/cadastro" method="post">
 					<div class="col-sm-12 centralize">
-						<input name="nome" type="text" class="type1" placeholder="NOME">
+						<a href="/lojista/homepage">
+                        <div id="customBtn" class="customGPlusSignIn">
+                            <span class="icon"></span>
+                            <span class="buttonText">Utilize sua conta Google</span>
+						</div>
+						</a>
+                        <hr>
+                        <div class="edit_ou">OU DIRETAMENTE NO SITE</div>
+						<input class="type1" placeholder="NOME">
 						<label>     </label>
-						<input name="sobrenome" class="type1" placeholder="SOBRENOME"><br>
-						<input name="email" class="type2" placeholder="EMAIL">
-						<input name="senha" class="type2" placeholder="SENHA">
+						<input class="type1" placeholder="SOBRENOME"><br>
+						<input class="type2" placeholder="EMAIL">
+						<input class="type2" placeholder="SENHA">
 						
 						<div class="reposition">
 							<label class="container reposition2">CNPJ
@@ -81,21 +93,21 @@
 							</label>
 						</div>
 						
-						<input name="nmr" class="type2" placeholder="CNPJ/CPF">
+						<input class="type2" placeholder="CNPJ/CPF">
                         <div class="slidecontainer">
                             Informe a % de desconto que estaria disposto a oferecer <b>permanentemente</b> aos consumidores:
-                           
+                            <form name="registrationForm">
                                 <div class="output">
                                     <output name="outcusto1" id="outcusto1" class="output">5</output><span>por cento (%)</span>
                                 </div>
                                 <input type="range" id='custo1' name='custo1' min="3" max="15" value="5" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
-                            
+                            </form>
                             Para mais informações, leia os <a href="#"><b>termos de uso</b></a>
                         </div>
 					</div>
 					<div class="col-sm-12 alinhamento ajust">
                         <label class="container reposition3">Li e concordo com os <a href="#">termos de uso</a>
-						  	<input  type="checkbox">
+						  	<input type="checkbox">
 						  	<span class="checkmark"></span>
 						</label>
 						<label class="container reposition3">Desejo receber novidades por email
@@ -104,9 +116,8 @@
 						</label>
 					</div>
                     <div class="centralize xtra">
-						<button  type="submit" id="btnConfirmar">CONFIRMAR E ENVIAR</button>
-					</div>
-				</form>
+                            <button>CONFIRMAR E ENVIAR</button>
+                    </div>
 				</div>
 			</div>
 			<div class="col-sm-1"></div>
@@ -129,19 +140,10 @@
 		</div>
 	</div>
     <script>
-	// $('#btnConfirmar').click(function(){
-	// 	// Teste se as informações foram passadas corretas
-	
-	// 	window.location.replace('lojista/cadastro');
-	// });
-
-    // document.registrationForm.ageInputId.oninput = function(){
-    //     document.registrationForm.outcusto1.value = document.registrationForm.custo1.value;
-	// 	}
-
-	
-		
-
+    document.registrationForm.ageInputId.oninput = function(){
+        document.registrationForm.outcusto1.value = document.registrationForm.custo1.value;
+        }
     </script>
+
 </body>
 </html>
