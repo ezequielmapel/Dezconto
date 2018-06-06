@@ -69,6 +69,21 @@ module.exports = {
 		var idCupom = nomeLoja.replace(' ','') + nomeCupom.replace(' ','') + valCupom + numero + nChar;
 
 		return idCupom;
+	},
+
+	
+	readCupom: function( idLojista){
+		/// LER CUPONS
+		
+		var rCupons = database.ref('lojista_cupom').child(idLojista);
+		rCupons.on('value', function(snapshot){
+console.log(snapshot.val())
+			for(var val in snapshot.val()){
+				console.log(val);
+		}
+		});
+		//console.log("?" + cupons);
+
 	}
 }
 

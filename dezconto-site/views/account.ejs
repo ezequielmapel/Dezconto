@@ -30,8 +30,9 @@
                 </div>
                 <ul>
                     <li class="opção selected" onclick="currentDiv(1)">Calculadora</li>
-                    <li class="opção selected" onclick="currentDiv(2)">Cupons</li>
-                    <li class="opção selected" onclick="currentDiv(3)">Configurações</li>
+                    <li class="opção selected" onclick="currentDiv(2)">Criar Cupons</li>
+                    <li class="opção selected" onclick="currentDiv(3)">Exibir Cupons</li>
+		    <li class="opção selected" onclick="currentDiv(4)">Configurações</li>
                 </ul>
             </div>
             <div class="col-sm-8 focus">
@@ -160,7 +161,11 @@
                             </div>
                     </div>
                 </div>
-
+		
+		<div class="mySlides">
+			<div class="row title">CUPONS CRIADOS</div>
+			<div class="row"></div>
+		</div> 
 
 
                 <div class="mySlides">
@@ -314,7 +319,7 @@
     
     <script src="account.js"></script>
     <script>
-        var slideIndex = 1;
+        var slideIndex = <%= slideIndex %>;
         showDivs(slideIndex);
 
 

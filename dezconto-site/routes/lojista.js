@@ -72,7 +72,8 @@ passport.deserializeUser(function(user, done) {
 
 
 router.get('/homepage', ensureLoggedIn('/lojista/auth/google'), function(req, res){
-  res.render('account', {nomeLojista: req.user.displayName, imgProfile:req.user.photos[0].value});
+  console.log(fireFun.readCupom(req.user.id));
+  res.render('account', {nomeLojista: req.user.displayName, imgProfile:req.user.photos[0].value, slideIndex:1});
   res.end();
 });
 
@@ -98,7 +99,11 @@ router.post('/homepage/gerenciar-cupons', ensureLoggedIn('/lojista/auth/google')
   
   // Atualizando o cupom criado no lojista
   fireFun.updateCupom(idCupom, idLoja);
-  res.redirect('/lojista/homepage');
+
+  
+  
+  res.render('account', {nomeLojista: req.user.displayName, imgProfile:req.user.photos[0].value, slideIndex:2
+		});
 	
 });
 
