@@ -45,7 +45,7 @@ app.get('*', function(req, res){
 	res.render('404');
 });
 
-app.listen('8080', function(){
+app.listen('80', function(){
 	console.log("Listen on 80");
 });
 

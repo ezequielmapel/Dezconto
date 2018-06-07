@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/style-account.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/cupom.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -164,7 +166,19 @@
 		
 		<div class="mySlides">
 			<div class="row title">CUPONS CRIADOS</div>
-			<div class="row"></div>
+             <% for (var cupom in cuponsLojista) { %>
+			    <div class="row">
+                   <div class="container_c">        
+                    <div class="acpt">Cupons Cadastrados: <br><span><%- cuponsLojista[cupom].qtdCupom %> </span><br>Cupons Restantes: <br><span><%- cuponsLojista[cupom].qtdCupom %></span></div>
+                    <div class="nome"> <%= cuponsLojista[cupom].nomeCupom %> </div>        
+
+                    <div class="promo">ID<br><span><%- cuponsLojista[cupom].desCupom %> </span></div>
+                    <div class="nome val">Promoção Válida por: <%- cuponsLojista[cupom].validadePromo %> dia(s)</div>
+                    <div class="nome val">Cupom Válido por: <%- cuponsLojista[cupom].validadeCupom %> dia(s)</div>
+                     <a href="#"><i class="fas fa-trash-alt apagar"></i></a>
+                </div> 
+                </div>
+            <% } %>
 		</div> 
 
 

@@ -67,18 +67,17 @@ passport.deserializeUser(function(user, done) {
 });
 
 
+
+
 // HOMEPAGE do lojista
 
-
-
-router.get('/homepage', ensureLoggedIn('/lojista/auth/google'), function(req, res){
-  console.log(fireFun.readCupom(req.user.id));
-  res.render('account', {nomeLojista: req.user.displayName, imgProfile:req.user.photos[0].value, slideIndex:1});
-  res.end();
+router.get('/homepage', ensureLoggedIn('/lojista/auth/google'), function(req, res, next){
+//  res.render('account', {nomeLojista: req.user.displayName, imgProfile:req.user.photos[0].value, slideIndex:1});
+    fireFun.readCupom(res, req, 1);
 });
 
 
-// GERENCIAR-CUPOM 
+
 router.post('/homepage/gerenciar-cupons', ensureLoggedIn('/lojista/auth/google'), function(req, res){
   var nomeCupom = req.body.nomeCupom;
   var desCupom = req.body.desCupom;
@@ -88,10 +87,12 @@ router.post('/homepage/gerenciar-cupons', ensureLoggedIn('/lojista/auth/google')
   var validadePromo = req.body.validadePromo;
   var validadeCupom = req.body.valCadaCupom;
  
+  var nomeLoja = req.user.displayName;
+  var fotoLoja = req.user.photos[0].value;
   var idCupom = fireFun.gerarIdCupom(req.user.displayName, nomeCupom, valCupom);
 
   //console.log(nomeCupom, desCupom, catCupom, valCupom, qtdCupom, validadePromo, validadeCupom);
-  fireFun.writeCupom(idCupom, nomeCupom, desCupom, catCupom, valCupom, qtdCupom, validadePromo, validadeCupom);
+  fireFun.writeCupom(nomeLoja,fotoLoja,idCupom, nomeCupom, desCupom, catCupom, valCupom, qtdCupom, validadePromo, validadeCupom);
   
   // Ligação lojista_cupm
   var idLoja = req.user.id;
@@ -102,10 +103,15 @@ router.post('/homepage/gerenciar-cupons', ensureLoggedIn('/lojista/auth/google')
 
   
   
-  res.render('account', {nomeLojista: req.user.displayName, imgProfile:req.user.photos[0].value, slideIndex:2
-		});
-	
+  //fireFun.updateReadCupom(res, req, 3);
+  res.redirect('/');
+  
 });
+
+
+
+
+// GERENCIAR-CUPOM 
 
 
 

@@ -13,9 +13,12 @@ var database = firebase.database();
 
 module.exports = {
 	// Função que escreve um novo cupom
-	writeCupom: function(idCupom, nomeCupom, desCupom, catCupom, valCupom, qtdCupom, validadePromo, validadeCupom){
+	writeCupom: function(nomeLoja, fotoLoja,idCupom, nomeCupom, desCupom, catCupom, valCupom, qtdCupom, validadePromo, validadeCupom){
 		var nCupom = database.ref('cupom/'+idCupom).set({
+            nomeLoja: nomeLoja,
+            fotoLoja: fotoLoja,
 			nomeCupom : nomeCupom,
+            idcupom: idCupom,
 			desCupom : desCupom,
 			catCupom : catCupom,
 			valCupom : valCupom,
@@ -34,7 +37,6 @@ module.exports = {
 		// Função que liga lojista com o cupom em lojista_cupom	
 		var nLojCupom = database.ref('lojista_cupom/'+idLoja).child(idCupom);
 		nLojCupom.set({
-			idLoja: idLoja,
 			nomeCupom: nomeCupom, 
 			desCupom:desCupom,
 			qtdCupom:qtdCupom, 
@@ -72,15 +74,27 @@ module.exports = {
 	},
 
 	
-	readCupom: function( idLojista){
-		/// LER CUPONS
+	readCupom: function(res, req, index){
+		/// LER CUPONS DO FIREBASE
 		
-		var rCupons = database.ref('lojista_cupom').child(idLojista);
-		rCupons.on('value', function(snapshot){
-console.log(snapshot.val())
-			for(var val in snapshot.val()){
-				console.log(val);
-		}
+		var rCupons = database.ref('lojista_cupom').child(req.user.id);
+		rCupons.once('value', function(snapshot){
+            treeCupom = snapshot.val()
+			res.render('account', {nomeLojista: req.user.displayName, imgProfile:req.user.photos[0].value, slideIndex: index, cuponsLojista:treeCupom});
+		});
+		//console.log("?" + cupons);
+
+	},
+    
+    	updateReadCupom: function(res, req, index){
+		/// LER CUPONS DO FIREBASE
+		
+		var rCupons = database.ref('lojista_cupom').child(req.user.id);
+		rCupons.once('value', function(snapshot){
+            treeCupom = snapshot.val()
+			res.render('account', {nomeLojista: req.user.displayName, imgProfile:req.user.photos[0].value, slideIndex: index, cuponsLojista:treeCupom});
+            
+          
 		});
 		//console.log("?" + cupons);
 
