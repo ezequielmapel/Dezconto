@@ -22,6 +22,15 @@ public class User implements Serializable{
     private String email;
     private String userId;
     private String imagePerfil;
+    private String cupons;
+
+    public String getCupons() {
+        return cupons;
+    }
+
+    public void setCupons(String cupons) {
+        this.cupons = cupons;
+    }
 
     public String getImagePerfil() {
         return imagePerfil;
@@ -73,10 +82,11 @@ public class User implements Serializable{
 
     }
 
-    public User(String nome, String email, String userId){
+    public User(String nome, String email, String userId, String cupons){
         this.nome = nome;
         this.email = email;
         this.userId = userId;
+        this.cupons = cupons;
     }
 
     public User(String nome, String email){
@@ -84,15 +94,16 @@ public class User implements Serializable{
         this.email = email;
     }
 
-    public User(String nome, String email, String userId, String imagePerfil){
+    public User(String nome, String email, String userId, String imagePerfil, String cupons){
         this.nome = nome;
         this.email = email;
         this.userId = userId;
         this.imagePerfil = imagePerfil;
+        this.cupons = cupons;
     }
 
-    public static void writeNewUser(DatabaseReference mDatabase, String nome, String email, String userId){
-        User user = new User(nome, email, userId);
+    public static void writeNewUser(DatabaseReference mDatabase, String nome, String email, String userId, String cupons){
+        User user = new User(nome, email, userId, cupons);
         mDatabase.child("user").child(userId).setValue(user);
 
         Log.d("User:writeNewUser", "Tentativa para salvar usuário");

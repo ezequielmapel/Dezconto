@@ -13,7 +13,7 @@
     <color name="coloBgLogin">#f1e8ff</color>
     <color name="colorTransparent">#00000000</color>
     <color name="colorGreen">#00d074</color>
-
+    <color name="colorRed">#df3636</color>
     <color name="colorAccLojLeft">#212F3C</color>
     <color name="colorAccLojRight">#ffaf3d</color>
 </resources>

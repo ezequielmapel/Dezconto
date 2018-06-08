@@ -149,7 +149,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
 
                     //User infoUser = new User(nome, email, id, urlphoto);
-                    infoUser = new User(nome, email, id, urlphoto);
+                    infoUser = new User(nome, email, id, urlphoto, "null");
 
                     btnEntrar.setVisibility(View.INVISIBLE);
                     btnCriarConta.setVisibility(View.INVISIBLE);
@@ -197,6 +197,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         try {
             if (!status) {
                 signOut();
+                FirebaseAuth.getInstance().signOut();
             }
         }catch (IllegalStateException ignored){
 
@@ -241,7 +242,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
 
             //User infoUser = new User(nome, email, id, urlphoto);
-            this.infoUser = new User(nome, email, id, urlphoto);
+            this.infoUser = new User(nome, email, id, urlphoto, "null");
 
             // escrever no bd
             User.writeNewUser(mDatabase, this.infoUser);

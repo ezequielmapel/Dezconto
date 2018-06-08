@@ -133,7 +133,7 @@ public class CadastroActivity extends AppCompatActivity {
                             finish();
                             try{
                                 idUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                User.writeNewUser(mDatabase, nomeUser, emailUser, idUser);
+                                User.writeNewUser(mDatabase, nomeUser, emailUser, idUser, "null");
                             }catch (NullPointerException ignored) {
                                 //User newUser = new User();
 
