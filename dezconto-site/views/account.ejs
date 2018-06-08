@@ -166,8 +166,10 @@
 		
 		<div class="mySlides">
 			<div class="row title">CUPONS CRIADOS</div>
-             <% for (var cupom in cuponsLojista) { %>
-			    <div class="row">
+
+             
+			    <div class="row scrollspy">
+                    <% for (var cupom in cuponsLojista) { %>
                    <div class="container_c">        
                     <div class="acpt">Cupons Cadastrados: <br><span><%- cuponsLojista[cupom].qtdCupom %> </span><br>Cupons Restantes: <br><span><%- cuponsLojista[cupom].qtdCupom %></span></div>
                     <div class="nome"> <%= cuponsLojista[cupom].nomeCupom %> </div>        
@@ -177,8 +179,9 @@
                     <div class="nome val">Cupom Válido por: <%- cuponsLojista[cupom].validadeCupom %> dia(s)</div>
                      <a href="#"><i class="fas fa-trash-alt apagar"></i></a>
                 </div> 
-                </div>
+                
             <% } %>
+            </div>
 		</div> 
 
 

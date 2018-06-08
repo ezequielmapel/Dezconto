@@ -18,7 +18,7 @@ module.exports = {
             nomeLoja: nomeLoja,
             fotoLoja: fotoLoja,
 			nomeCupom : nomeCupom,
-            idcupom: idCupom,
+            idCupom: idCupom,
 			desCupom : desCupom,
 			catCupom : catCupom,
 			valCupom : valCupom,
@@ -65,10 +65,10 @@ module.exports = {
 		número aleatorio entre 1 e 99 e um caracter especial (A, B, C);
 		*/
 
-		var char = {'1':'A', '2':'B', '3':'C'};
-		var nChar = char[Math.floor((Math.random() * 3) + 1)];
+		var char = {'1':'A', '2':'B', '3':'C', '4':'D'};
+		var nChar = char[Math.floor((Math.random() * 4) + 1)];
 		var numero = Math.floor((Math.random() * 99) + 1);
-		var idCupom = nomeLoja.replace(' ','') + nomeCupom.replace(' ','') + valCupom + numero + nChar;
+		var idCupom = nomeCupom.replace(' ','') + valCupom + numero + nChar;
 
 		return idCupom;
 	},

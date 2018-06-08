@@ -554,3 +554,12 @@ input[type=range]:focus::-ms-fill-upper {
 .select-items div:hover, .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
+.scrollspy{
+	height: 550px;
+	width: 100%;
+	overflow: auto;
+    padding: 15px;
+    border:none;
+	border-bottom: 2px solid gray;
+}
