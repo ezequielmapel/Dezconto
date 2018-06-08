@@ -34,19 +34,19 @@ Ao entrar, o Lojista encontrará a opção de **CADASTRAR DESCONTO**, informando
 
 ### 5.COMO RODAR A APLICAÇÃO WEB <br>
 Escolhemos 'dockerizar' nossa aplicação para aumentar a sua portabilidade, logo abaixo estará as etapas a serem seguidas para rodar o container da aplicação.
-<br><br><Br>
+<br><br><br>
 **1- Certifique-se**<br>
   Para começar, certifique-se de ter os seguintes requisitos:<br>
   - [x] Docker instalado;
-  - [x] Docker Compose;
+  - [x] Docker Compose instalado;
   - [x] Nenhuma aplicação na porta **80**;
  
  <br><br>
  
  **2- Comandos**<br>
- Clone o projeto para alguma pasta, lembrando que todo conteúdo já irá para uma pasta 'Dezconto/<resto-dos-arquivos>'.
- <br> Feito isso, acesse a pasta utilizando o terminal, certifique-se que o caminho atual seja algo parecido com,
-  > .../Dezconto/
+ Clone o projeto para algum diretório, lembrando que todo conteúdo já irá para uma pasta 'Dezconto/<resto-dos-arquivos>'.
+ <br> Feito isso, acesse a pasta utilizando o terminal, certifique-se que o caminho final seja algo parecido com,
+  > .../Dezconto
   <br>
  
  Dê o comando **docker-compose up**.
