@@ -7,9 +7,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/style-lojista.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>  
+    <script type="text/javascript" src="//assets.locaweb.com.br/locastyle/2.0.6/javascripts/locastyle.js"></script>
     
 </head>
 <body>
@@ -82,18 +81,7 @@
 						<input class="type2" placeholder="EMAIL">
 						<input class="type2" placeholder="SENHA">
 						
-						<div class="reposition">
-							<label class="container reposition2">CNPJ
-	 							<input id="cnpj" type="radio" name="radio">
-								<span class="checkmark"></span>
-							</label>
-							<label class="container reposition2">CPF
-								<input id="cpf" type="radio" name="radio">
-								<span class="checkmark"></span>
-							</label>
-						</div>
-						
-						<input class="type2" placeholder="CNPJ/CPF">
+						<input class="type2 cnpj" placeholder="CNPJ" data-mask="00.000.000/0000-00"  autocomplete="off"> 
                         <div class="slidecontainer">
                             Informe a % de desconto que estaria disposto a oferecer <b>permanentemente</b> aos consumidores:
                             <form name="registrationForm">
@@ -139,11 +127,7 @@
 			<div class="col-sm-1"></div>			
 		</div>
 	</div>
-    <script>
-    document.registrationForm.ageInputId.oninput = function(){
-        document.registrationForm.outcusto1.value = document.registrationForm.custo1.value;
-        }
-    </script>
+	<script type="text/javascript" src="//assets.locaweb.com.br/locastyle/2.0.6/javascripts/locastyle.js"></script>  
 
 </body>
 </html>
