@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/cupom.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
 </head>
 <body>
     <div class="container-fluid font">  
@@ -42,16 +42,17 @@
                     <div class="row title">CALCULADORA</div>
                     <div class="row">
                         <div class="col-sm-5">
-                            Valor da Compra (R$):<input class="w3-input w3-border">
-                            Cupom Promocional:<input class="w3-input w3-border">
-                            Email do Cliente:<input class="w3-input w3-border">
+                            Valor da Compra (R$):<input id="valCompra" class="w3-input w3-border">
+                            Cupom Promocional:<input id="cupomPromo" class="w3-input w3-border">
+                            Email do Cliente:<input id="emailCli" class="w3-input w3-border">
+                            <button  style="display: block">VALIDAR</button>
                         </div>
                         <div class="col-sm-1"></div>
                         <div class="col-sm-5">
                             
                             Valor <span>Dez</span>conto (R$):
-                            <div class="valor_dez">100<span>,00</span></div>
-                            <button style="display: block">CONFIRMAR</button>
+                            <div id="valDesc" class="valor_dez">100,00</div>
+                            <button onclick="calcular()" style="display: block">CALCULAR</button>
                         </div>
                     </div>
                 </div>
@@ -198,16 +199,18 @@
                         </form>
                         <br>
                         <div class="col-sm-5">
-                            Estado:<input class="w3-input w3-border w3-animate-input">
-                            Cidade:<input class="w3-input w3-border w3-animate-input">
-                            Nome da Loja:<input class="w3-input w3-border w3-animate-input">
-                            Telefone:<input class="w3-input w3-border w3-animate-input">
+                            CEP:<input id="cep" onblur="pesquisacep(this.value);" class="w3-input w3-border w3-animate-input">
+                            Estado:<input id="estado" class="w3-input w3-border w3-animate-input">
+                            Cidade:<input id="cidade" class="w3-input w3-border w3-animate-input">
+                            Nome da Loja:<input id="nomeLoja" class="w3-input w3-border w3-animate-input">
+                            Telefone:<input data-mask="(00) 0000-0000" class="w3-input w3-border w3-animate-input">
+                            
                         </div>
                         <div class="col-sm-1"></div>
                         <div class="col-sm-5">
-                            Bairro:<input class="w3-input w3-border w3-animate-input">
-                            Endereço:<input class="w3-input w3-border w3-animate-input">
-                            CNPJ:<input class="w3-input w3-border w3-animate-input">
+                            Bairro:<input id="bairro" class="w3-input w3-border w3-animate-input">
+                            Endereço:<input id="rua" class="w3-input w3-border w3-animate-input">
+                            CNPJ:<input data-mask="00.000.000/0000-00" class="w3-input w3-border w3-animate-input">
                             Categoria da Loja:
                             
                             <div class="custom-select">
@@ -222,7 +225,7 @@
                                     <option value="7">Outro</option>
                                 </select>
                             </div>
-                            
+                            <button>SALVAR ALTERAÇÕES</button>
                             
 <!-- //////////////////////////////////////// SCRIPT DO SELECT \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
                             
@@ -308,7 +311,7 @@
                         </div>
                         <div class="col-sm-1"></div>
                         <div class="row">
-                            <button>SALVAR ALTERAÇÕES</button>
+                            
                         </div>
                         
                     </div>
@@ -335,6 +338,7 @@
     </div>
     
     <script src="account.js"></script>
+    <script type="text/javascript" src="//assets.locaweb.com.br/locastyle/2.0.6/javascripts/locastyle.js"></script>
     <script>
         var slideIndex = <%= slideIndex %>;
         showDivs(slideIndex);
@@ -374,6 +378,84 @@
         }
 
         console.log(document.getElementById('one').checked);
+
+        function calcular() {
+        	var valCompra = parseFloat((document.getElementById('valCompra').value).replace(',','.'));
+        	var cupomPromo = document.getElementById('cupomPromo').value;        	
+
+        	valDesc = valCompra*(cupomPromo/100);
+        	console.log(cupomPromo);
+			var res = String((valCompra-valDesc).toFixed(2));
+
+        	
+        	document.getElementById('valDesc').innerHTML = res.replace('.',',');
+        }
+
+        ///////////////////////////////////////   CEP    ////////////////////////////////////////////////////////////
+        function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+            document.getElementById('estado').value=("");
+        }
+
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value=(conteudo.logradouro);
+                document.getElementById('bairro').value=(conteudo.bairro);
+                document.getElementById('cidade').value=(conteudo.localidade);
+                document.getElementById('estado').value=(conteudo.uf);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+            
+        function pesquisacep(valor) {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if(validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value="...";
+                    document.getElementById('bairro').value="...";
+                    document.getElementById('cidade').value="...";
+                    document.getElementById('estado').value="...";
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        };
 </script>
 </body>
 </html>
