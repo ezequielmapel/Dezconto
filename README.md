@@ -44,7 +44,7 @@ Escolhemos 'dockerizar' nossa aplicação para aumentar a sua portabilidade, log
  <br><br>
  
  **2- Comandos**<br>
- Clone o projeto para algum diretório, lembrando que todo conteúdo já irá para uma pasta 'Dezconto/<resto-dos-arquivos>'.
+ Clone o projeto para algum diretório, lembrando que todo conteúdo já irá para uma pasta '/Dezconto'.
  <br> Feito isso, acesse a pasta utilizando o terminal, certifique-se que o caminho final seja algo parecido com,
   > .../Dezconto
   <br>
