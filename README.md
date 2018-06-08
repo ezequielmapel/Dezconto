@@ -40,6 +40,7 @@ Escolhemos 'dockerizar' nossa aplicação para aumentar a sua portabilidade, log
   - [x] Docker instalado;
   - [x] Docker Compose instalado;
   - [x] Nenhuma aplicação na porta **80**;
+  - [x] Dar comandos como root, ou o usuário adcionado ao grupo Docker;
  
  <br><br>
  
