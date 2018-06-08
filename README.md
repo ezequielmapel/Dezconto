@@ -30,4 +30,50 @@ Ao entrar, o Lojista encontrará a opção de **CADASTRAR DESCONTO**, informando
 ![Alt text](https://github.com/Ramom-Matieli17/DezcontoApp/blob/master/prints/Dezconto-app.PNG)
 <br><br>
 [Código do projeto mobile](https://github.com/ezequielmapel/Dezconto/tree/dev)
+<hr><br>
 
+### 5.COMO RODAR A APLICAÇÃO WEB <br>
+Escolhemos 'dockerizar' nossa aplicação para aumentar a sua portabilidade, logo abaixo estará as etapas a serem seguidas para rodar o container da aplicação.
+<br><br><br>
+**1- Certifique-se**<br>
+  Para começar, certifique-se de ter os seguintes requisitos:<br>
+  - [x] Docker instalado;
+  - [x] Docker Compose instalado;
+  - [x] Nenhuma aplicação na porta **80**;
+  - [x] Dar comandos como root, ou o usuário adcionado ao grupo Docker;
+ 
+ <br><br>
+ 
+ **2- Comandos**<br>
+ Clone o projeto para algum diretório, lembrando que todo conteúdo já irá para uma pasta '/Dezconto'.
+ <br> Feito isso, acesse a pasta utilizando o terminal, certifique-se que o caminho final seja algo parecido com,
+  > .../Dezconto
+  <br>
+ 
+ Dê o comando **docker-compose up**.
+  > Building dezconto
+   > Step 1/5 : FROM node<br>
+    ---> aa3e171e4e95<br>
+    Step 2/5 : LABEL Ezequiel F<br>
+    ---> Using cache<br>
+    ---> 9ce6759b45d8<br>
+    Step 3/5 : EXPOSE 8080<br>
+    ---> Running in 3431a4f136c1<br>
+    **...**
+    
+ <br><br>
+ O container estará rodando, para ter certeza, apenas digite no terminal **docker ps**.
+ Agora acesse algum dos seguintes endereços.<br>
+  * [http://locahost](http://localhost:80)
+  * [http://127.0.0.1](http://127.0.0.1:80)
+  * [http://0.0.0.0](https://0.0.0.0:80)
+  
+  <br>
+  
+Apartir de agora, basta acessar via **Gmail** para ter seu cadastro automaticamente.
+
+### 6.ACESSAR A APLICAÇÃO MOBILE<br><br>
+Para isso, será necessário que faça o download do apk e instala-lo em seu dispositivo.
+[Link para download](http://google.com);
+
+Apartir da instalação, basta se autenticar via **Gmail** ou realizando um cadastro manual.
