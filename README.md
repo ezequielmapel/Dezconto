@@ -33,6 +33,9 @@ Ao entrar, o Lojista encontrará a opção de **CADASTRAR DESCONTO**, informando
 <hr><br>
 
 ### 5.COMO RODAR A APLICAÇÃO WEB <br>
+
+**Obs.:** Para uma melhor experiência de visualização recomendamos o navegador **Mozilla Firefox**, pois um vetor em especial (na parte de cadastro do google, a logo G) não aparece em outros navegadores. Fora isso, tudo normal em outros navegadores.
+
 Escolhemos 'dockerizar' nossa aplicação para aumentar a sua portabilidade, logo abaixo estará as etapas a serem seguidas para rodar o container da aplicação.
 <br><br><br>
 **1- Certifique-se**<br>
