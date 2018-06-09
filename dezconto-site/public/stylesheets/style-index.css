@@ -12,11 +12,14 @@
 	height: auto;
 	vertical-align: middle;
 }
-a.loj:link{
-	text-decoration: none;
-	color: #c6bb00;
-	font-weight: 600;		
+.loj{
+    padding-top:10px;
 }
+.loj a{
+    text-decoration: none;	
+    color: #c6bb00;
+    font-weight: 600;        	
+}		
 .entrar{
 	color: #c6bb00;
 	font-size: 0.9em;
