@@ -74,6 +74,6 @@ Apartir de agora, basta acessar via **Gmail** para ter seu cadastro automaticame
 
 ### 6.ACESSAR A APLICAÇÃO MOBILE<br><br>
 Para isso, será necessário que faça o download do apk e instala-lo em seu dispositivo.
-[Link para download](http://google.com);
+[Link para download](https://www.dropbox.com/s/z2nygf9du4jburu/dezconto.rar?dl=0);
 
 Apartir da instalação, basta se autenticar via **Gmail** ou realizando um cadastro manual.
