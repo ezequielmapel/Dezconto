@@ -5,7 +5,6 @@
 
 */
 var firebase = require('firebase');
-var Promise = require('promise')
 var database = firebase.database();
 
 
@@ -100,23 +99,35 @@ module.exports = {
 		//console.log("?" + cupons);
 	},
 
-	validarCupom: function(idLojista, idCupom, emailUser){
-		// Validando cupom
-		var fb = {};
-		function cupomExists (idCupom) { return database.ref("cupom").child(idCupom).once('value').then(function(snapshot){return snapshot.val()});}
-		function emailUser (emailUser) { return database.ref('usuario').orderByValue("email").equalTo(emailUser).once("value").then(function(snapshot){return snapshot.val()})};
+	validarCupom: function(res, idLojista, idCupom){
+		var idCupom = idCupom;
 		
-		Promise.all([cupomExists(idCupom), cupomExists(idCupom).then(function(snapshot){fb = snapshot.val(); console.log(snapshot.val())})]);
+		/*var cupom = database.ref('cupom').orderByKey().equalTo(idCupom).once('value', function(snapshot){
+			if(snapshot.val() == null){
+				res.send('4px solid red');			
+			}else{
+				res.send('4px solid green')
+			}			
+		});*/
+		
+		var lojCupom  = database.ref('lojista_cupom').child(idLojista).orderByKey().equalTo(idCupom).once('value', function(snapshot){
+			if(snapshot.val() == null){
+				res.send('4px solid red');			
+			}else{
+				res.send('4px solid green');
+			};	
+	});
+		
+	},
 
-		console.log(fb);
-
-		// var cupomLoj = database.ref('lojista_cupom').child(idLojista).child(idCupom);
-		
-		// var emailUser = database.ref('usuario').orderByValue('email').equalTo(emailUser);
-		// emailUser.once('value', function(snapshot){
-		// 	//console.log(snapshot.val);
-		// });
-		
+	validarUsuario: function(res, emailUser, idCupom){
+		var usuario = database.ref('user').orderByChild('email').equalTo(emailUser).once('value', function(snapshot){
+			if(snapshot.val() == null){
+				res.send('4px solid red');			
+			}else{
+				res.send('4px solid green');
+			}		
+		});
 	}
 }
 

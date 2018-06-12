@@ -83,7 +83,16 @@ router.get('/calculadora', function(req, res){
   fireFun.validarCupom(req.user.id, idCupom, emailUser);
 });
 
+router.get('/calculadora/cupom-promocional', ensureLoggedIn('lojista/auth/google'),function(req,res){
+	var idCupom = req.query.idCupom;
+	fireFun.validarCupom(res, req.user.id, idCupom);	
+});
 
+router.get('/calculadora/verificar-usuario', function(req, res){
+	var emailUser = req.query.emailUser;
+	var idCupom = req.query.idCupom;
+	fireFun.validarUsuario(res, emailUser, idCupom);
+});
 
 router.post('/homepage/gerenciar-cupons', ensureLoggedIn('/lojista/auth/google'), function(req, res){
   var nomeCupom = req.body.nomeCupom;
