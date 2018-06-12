@@ -5,7 +5,7 @@
 
 */
 var firebase = require('firebase');
-
+var Promise = require('promise')
 var database = firebase.database();
 
 
@@ -37,7 +37,8 @@ module.exports = {
 		// Função que liga lojista com o cupom em lojista_cupom	
 		var nLojCupom = database.ref('lojista_cupom/'+idLoja).child(idCupom);
 		nLojCupom.set({
-			nomeCupom: nomeCupom, 
+			nomeCupom: nomeCupom,
+			idCupom: idCupom,
 			desCupom:desCupom,
 			qtdCupom:qtdCupom, 
 			valCupom:valCupom,
@@ -86,7 +87,7 @@ module.exports = {
 
 	},
     
-    	updateReadCupom: function(res, req, index){
+    updateReadCupom: function(res, req, index){
 		/// LER CUPONS DO FIREBASE
 		
 		var rCupons = database.ref('lojista_cupom').child(req.user.id);
@@ -97,7 +98,25 @@ module.exports = {
           
 		});
 		//console.log("?" + cupons);
+	},
 
+	validarCupom: function(idLojista, idCupom, emailUser){
+		// Validando cupom
+		var fb = {};
+		function cupomExists (idCupom) { return database.ref("cupom").child(idCupom).once('value').then(function(snapshot){return snapshot.val()});}
+		function emailUser (emailUser) { return database.ref('usuario').orderByValue("email").equalTo(emailUser).once("value").then(function(snapshot){return snapshot.val()})};
+		
+		Promise.all([cupomExists(idCupom), cupomExists(idCupom).then(function(snapshot){fb = snapshot.val(); console.log(snapshot.val())})]);
+
+		console.log(fb);
+
+		// var cupomLoj = database.ref('lojista_cupom').child(idLojista).child(idCupom);
+		
+		// var emailUser = database.ref('usuario').orderByValue('email').equalTo(emailUser);
+		// emailUser.once('value', function(snapshot){
+		// 	//console.log(snapshot.val);
+		// });
+		
 	}
 }
 

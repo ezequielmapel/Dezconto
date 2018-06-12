@@ -41,12 +41,15 @@ app.get('/nao-autorizado', function(req, res){
 });  
 
 
+
+
 app.get('*', function(req, res){
 	res.render('404');
 });
 
-app.listen('8080' , function(){
-	console.log("Listen on 8080");
+port = '8080';
+app.listen(port , function(){
+	console.log("Listen on "+port);
 });
 
 module.exports = app;

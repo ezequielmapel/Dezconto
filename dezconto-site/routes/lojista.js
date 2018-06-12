@@ -18,11 +18,6 @@ router.use(bodyParser.json());
 
 
 
-
-
-
-
-
 router.get('/', function(req, res, next) {
   res.render('lojista');
   
@@ -44,6 +39,8 @@ router.post('/cadastro', function(req, res){
  
  
 });
+
+
 
 
 // Autenticação do Google
@@ -74,6 +71,16 @@ passport.deserializeUser(function(user, done) {
 router.get('/homepage', ensureLoggedIn('/lojista/auth/google'), function(req, res, next){
 //  res.render('account', {nomeLojista: req.user.displayName, imgProfile:req.user.photos[0].value, slideIndex:1});
     fireFun.readCupom(res, req, 1);
+});
+
+
+// CALCULADORA
+
+router.get('/calculadora', function(req, res){
+  var idCupom = req.query.idCupom;
+  var emailUser = req.query.emailUser;
+
+  fireFun.validarCupom(req.user.id, idCupom, emailUser);
 });
 
 

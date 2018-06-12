@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    
+
 </head>
 <body>
     <div class="container-fluid font">  
@@ -41,12 +44,14 @@
                 <div class="mySlides">
                     <div class="row title">CALCULADORA</div>
                     <div class="row">
+                        
                         <div class="col-sm-5">
                             Valor da Compra (R$):<input id="valCompra" class="w3-input w3-border">
                             Cupom Promocional:<input id="cupomPromo" class="w3-input w3-border">
                             Email do Cliente:<input id="emailCli" class="w3-input w3-border">
-                            <button  style="display: block">VALIDAR</button>
+                            <button id="btnVal" type="button" style="display: block">VALIDAR</button>
                         </div>
+                        
                         <div class="col-sm-1"></div>
                         <div class="col-sm-5">
                             
@@ -175,7 +180,7 @@
                     <div class="acpt">Cupons Cadastrados: <br><span><%- cuponsLojista[cupom].qtdCupom %> </span><br>Cupons Restantes: <br><span><%- cuponsLojista[cupom].qtdCupom %></span></div>
                     <div class="nome"> <%= cuponsLojista[cupom].nomeCupom %> </div>        
 
-                    <div class="promo">ID<br><span><%- cuponsLojista[cupom].desCupom %> </span></div>
+                    <div class="promo"><%- cuponsLojista[cupom].idCupom %><br><span><%- cuponsLojista[cupom].desCupom %> </span></div>
                     <div class="nome val">Promoção Válida por: <%- cuponsLojista[cupom].validadePromo %> dia(s)</div>
                     <div class="nome val">Cupom Válido por: <%- cuponsLojista[cupom].validadeCupom %> dia(s)</div>
                      <a href="#"><i class="fas fa-trash-alt apagar"></i></a>
@@ -294,10 +299,10 @@
                                 document.addEventListener("click", closeAllSelect);
 
 
-                                     console.log("VALUE: " + $('#custo1').val);
+                                     
 
                                 
-                                
+                               
 
                             </script>
                                                     
@@ -336,7 +341,7 @@
             <div class="col-sm-1"></div>            
         </div>
     </div>
-    
+    <script type="text/javascript" src="/javascript/calc.js"></script>
     <script src="account.js"></script>
     <script type="text/javascript" src="//assets.locaweb.com.br/locastyle/2.0.6/javascripts/locastyle.js"></script>
     <script>
