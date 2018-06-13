@@ -25,6 +25,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/homepage/sair', function(req, res){
 	req.logout();
+	req = null;
 	res.redirect('/lojista');
 });
 

@@ -47,8 +47,8 @@ app.get('*', function(req, res){
 	res.render('404');
 });
 
-port = '8080';
-app.listen(port , function(){
+port = '80';
+app.listen(port, function(){
 	console.log("Listen on "+port);
 });
 
