@@ -14,12 +14,15 @@ $('#emailCli').keyup(function(){
 });
 
 
-/*
-$('#btnVal').on('click',function(){
-    var parm = {idCupom: $('#cupomPromo').val(), emailUser: $('#emailCliente').val()};
-    $.get('/lojista/calculadora', parm, function(data){
-       
-    });
-});
+$('#calcDesc').click(function(){
+	var idCupom = $('#cupomPromo').val();
+	var email = $('#emailCli').val();
+	var valCompra = $('#valCompra').val();	
 
-*/
+	var param = {idCupom: idCupom, email: email, valCompra: valCompra};
+	if(idCupom != "" && email != ""){
+		$.get('/lojista/calculadora/calcdezconto', param, function(data){
+			$('#valDesc').html(data);
+		});	
+	}
+});

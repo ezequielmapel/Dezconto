@@ -95,6 +95,13 @@ router.get('/calculadora/verificar-usuario', function(req, res){
 	fireFun.validarUsuario(res, emailUser, idCupom);
 });
 
+router.get('/calculadora/calcdezconto', ensureLoggedIn('/lojista/auth/google') ,function(req, res){
+	var idCupom = req.query.idCupom;
+	var email = req.query.email;
+	var valCompra = req.query.valCompra;
+	fireFun.validarBoth(res, idCupom, email, valCompra);
+});
+
 router.post('/homepage/gerenciar-cupons', ensureLoggedIn('/lojista/auth/google'), function(req, res){
   var nomeCupom = req.body.nomeCupom;
   var desCupom = req.body.desCupom;

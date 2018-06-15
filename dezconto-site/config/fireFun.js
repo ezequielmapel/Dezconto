@@ -128,6 +128,28 @@ module.exports = {
 				res.send('4px solid green');
 			}		
 		});
+	},
+
+	validarBoth: function(res, idCupom, emailUser, valCompra){
+		// Função para validar / gerar o calculo
+		var usuario = database.ref('user').orderByChild('email').equalTo(emailUser).once('value', function(snapshot){
+		var sp = snapshot.val();
+		for (var el in sp){
+			var id = sp[el]['userId'];
+			console.log('antes');
+			var cupom = database.ref('usuario_cupom/'+id).child(idCupom).once('value', function(snapshot){
+					console.log('depois');
+				if(snapshot.val() != null){
+						console.log('dentro');
+					console.log(snapshot.val().valCupom +' '+ valCompra);
+					var valCupom = snapshot.val().valCupom;
+					var calc =   valCompra - (valCompra*(valCupom/100));
+					res.send(calc.toString());			
+				};			
+			});		
+		}
+		
+	});
 	}
 }
 
