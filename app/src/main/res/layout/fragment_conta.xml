@@ -6,128 +6,146 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
 
-    <ImageView
-        android:id="@+id/imgUser"
-        android:visibility="invisible"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_alignParentTop="true"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="60dp"
+  <android.support.v7.widget.CardView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:cardCornerRadius="40dp"
+      android:layout_marginTop="130dp"
+      android:background="@color/colorWhite">
 
-        android:background="@mipmap/man_user_white"
-        android:contentDescription="@string/app_name" />
+   <android.support.v7.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_marginTop="40dp"
+       app:cardCornerRadius="0dp"
+       android:background="@color/coloBgLogin"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvNome"
-        android:layout_width="match_parent"
-        android:textAlignment="center"
-        android:layout_height="wrap_content"
-        android:background="@drawable/borderleft"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text=""
-        android:textStyle="bold"
-        android:hint="Nome do usuário"
-        android:padding="12dp"
-        android:textColorHint="@color/colorMain"
-        android:textColor="@color/colorMain"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgUser"
-        android:layout_marginTop="50dp"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="257dp"
-        android:visibility="invisible"
-         />
+       <android.support.constraint.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text=""
-        android:textStyle="bold"
-        android:hint="Email do usuário"
-        android:textColorHint="@color/colorMain"
-        android:textColor="@color/colorMain"
-        android:padding="12dp"
-        android:background="@drawable/borderleft"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgUser"
-        android:layout_marginTop="100dp"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="297dp"
-        tools:ignore="MissingConstraints"
-        android:visibility="invisible"/>
+       <de.hdodenhof.circleimageview.CircleImageView
+           android:id="@+id/imgUser"
+           android:visibility="invisible"
+           android:layout_width="130dp"
+           android:layout_height="130dp"
+           android:layout_alignParentTop="true"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           android:layout_marginTop="5dp"
+           android:background="@mipmap/man_user_white"
+           android:contentDescription="@string/app_name" />
+
+       <TextView
+           android:id="@+id/tvNome"
+           android:layout_width="match_parent"
+           android:textAlignment="center"
+           android:layout_height="wrap_content"
+           android:background="@drawable/borderleft"
+           app:layout_constraintLeft_toLeftOf="parent"
+           android:text=""
+           android:textStyle="bold"
+           android:hint="Nome do usuário"
+           android:padding="12dp"
+           android:textColorHint="@color/colorMain"
+           android:textColor="@color/colorMain"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/imgUser"
+           android:layout_marginTop="50dp"
+           tools:layout_editor_absoluteX="163dp"
+           tools:layout_editor_absoluteY="257dp"
+           android:visibility="invisible"
+           />
+
+       <TextView
+           android:id="@+id/tvEmail"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textAlignment="center"
+           android:text=""
+           android:textStyle="bold"
+           android:hint="Email do usuário"
+           android:textColorHint="@color/colorMain"
+           android:textColor="@color/colorMain"
+           android:padding="12dp"
+           android:background="@drawable/borderleft"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/imgUser"
+           android:layout_marginTop="100dp"
+           tools:layout_editor_absoluteX="163dp"
+           tools:layout_editor_absoluteY="297dp"
+           tools:ignore="MissingConstraints"
+           android:visibility="invisible"/>
 
 
+       <ImageButton
+           app:srcCompat="@drawable/setting"
+           android:id="@+id/btnSetting"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="10dp"
+           android:background="@drawable/border"
+           android:padding="15dp"
+           app:layout_constraintTop_toBottomOf="@id/tvEmail"
+           tools:ignore="MissingConstraints"
+           app:layout_constraintRight_toRightOf="parent"
+           android:layout_marginRight="60dp"
+           tools:layout_editor_absoluteX="71dp"
+           android:layout_marginEnd="60dp"
+           android:contentDescription="setting" />
 
+       <ImageButton
+           app:srcCompat="@drawable/info"
+           android:id="@+id/btnInfo"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:padding="15dp"
+           android:layout_marginTop="10dp"
+           android:background="@drawable/border"
+           android:textColor="@color/colorWhite"
+           app:layout_constraintTop_toBottomOf="@id/tvEmail"
+           tools:ignore="MissingConstraints"
+           app:layout_constraintLeft_toLeftOf="parent"
+           android:layout_marginLeft="60dp"
+           tools:layout_editor_absoluteX="71dp"
+           android:layout_marginStart="60dp"
+           android:contentDescription="info" />
 
+       <ImageButton
+           app:srcCompat="@drawable/more"
+           android:id="@+id/btnMore"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="@drawable/border"
+           app:layout_constraintTop_toBottomOf="@id/tvEmail"
+           android:layout_marginTop="10dp"
+           android:padding="15dp"
+           tools:layout_editor_absoluteX="153dp"
+           tools:layout_editor_absoluteY="365dp"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintRight_toRightOf="parent"
+           tools:ignore="MissingConstraints"
+           android:contentDescription="more" />
 
+       <ProgressBar
+           android:id="@+id/progressInfo"
+           android:indeterminateDrawable="@drawable/progress"
+           style="?android:attr/progressBarStyle"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           tools:layout_editor_absoluteX="168dp"
+           tools:layout_editor_absoluteY="240dp"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"
+           tools:ignore="MissingConstraints" />
 
+    </android.support.constraint.ConstraintLayout>
+   </android.support.v7.widget.CardView>
 
-    <ImageButton
-        app:srcCompat="@drawable/setting"
-        android:id="@+id/btnSetting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:background="@drawable/borderwhite"
-        android:padding="20dp"
-        app:layout_constraintTop_toBottomOf="@id/tvEmail"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="60dp"
-        tools:layout_editor_absoluteX="71dp"
-        android:layout_marginEnd="60dp"
-        android:contentDescription="setting" />
-
-    <ImageButton
-        app:srcCompat="@drawable/info"
-        android:id="@+id/btnInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:layout_marginTop="70dp"
-        android:background="@drawable/borderwhite"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintTop_toBottomOf="@id/tvEmail"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="60dp"
-        tools:layout_editor_absoluteX="71dp"
-        android:layout_marginStart="60dp"
-        android:contentDescription="info" />
-
-    <ImageButton
-        app:srcCompat="@drawable/more"
-        android:id="@+id/btnMore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/borderwhite"
-        app:layout_constraintTop_toBottomOf="@id/tvEmail"
-        android:layout_marginTop="70dp"
-        android:padding="20dp"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="365dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="MissingConstraints"
-        android:contentDescription="more" />
-
-    <ProgressBar
-        android:id="@+id/progressInfo"
-        android:indeterminateDrawable="@drawable/progress"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="240dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints" />
+  </android.support.v7.widget.CardView>
 
 
 </android.support.constraint.ConstraintLayout>
