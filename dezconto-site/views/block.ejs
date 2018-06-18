@@ -1,0 +1,60 @@
+<% include ./index-top.ejs %>
+
+<div class="row" style="padding:0 !important; margin: 0!important;">
+    <div class="col-lg-4" style="text-align: center; font-weight: 600;">
+        <div class="row title">CONFIGURAÇÕES</div>
+                    <div class="row">
+                        Valor cupom padrão:
+    
+                        <form id="formRegist" name="registrationForm">
+                            <div class="output">
+                                <output name="outcusto1" id="outcusto1" class="output">3</output>
+                            </div>
+                            <input type="range" id='custo1' name='custo1' min="3" max="15" value="3" class="slider" id="myRange" oninput="outcusto1.value = custo1.value">
+                        </form>
+                        <br>
+                        <div id="save"></div>
+                        <div class="col-sm-5">
+                            Estado:<input class="w3-input w3-border w3-animate-input">
+                            Cidade:<input class="w3-input w3-border w3-animate-input">
+                            Nome da Loja:<input class="w3-input w3-border w3-animate-input">
+                            Telefone:<input class="w3-input w3-border w3-animate-input">
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            Bairro:<input class="w3-input w3-border w3-animate-input">
+                            Endereço:<input class="w3-input w3-border w3-animate-input">
+                            CNPJ:<input id="cnpj" class="w3-input w3-border w3-animate-input">
+                            Categoria da Loja:<input class="w3-input w3-border w3-animate-input">
+                            
+                            <div class="custom-select">
+                                <select>
+                                    <option value="0">Selecione a Categoria</option>
+                                    <option value="1">Vestuario</option>
+                                    <option value="2">Drogaria</option>
+                                    <option value="3">Cosmético</option>
+                                    <option value="4">Conveniência</option>
+                                    <option value="5">Alimenticia</option>
+                                    <option value="6">Multiplas Categorias</option>
+                                    <option value="7">Outro</option>
+                                </select>
+                            </div>
+
+                            <button type="button" id="saveAlter">SALVAR ALTERAÇÕES</button>
+		</div>
+</div>
+    </div>
+</div>
+<script>
+    $('#saveAlter').click(function(){
+        if ($('#cnpj').val() != ""){
+            var cnpj = $('#cnpj').val();
+            var param = {cnpj: cnpj};
+            $.get('/lojista/homepage/alterar-configuracoes', param, function(data){
+                $('#save').html(data);
+            })
+        }
+    });
+</script>
+
+<% include ./index-bottom.ejs %>

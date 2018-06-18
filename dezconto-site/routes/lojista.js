@@ -71,13 +71,17 @@ passport.deserializeUser(function(user, done) {
 
 router.get('/homepage', ensureLoggedIn('/lojista/auth/google'), function(req, res, next){
 //  res.render('account', {nomeLojista: req.user.displayName, imgProfile:req.user.photos[0].value, slideIndex:1});
-    fireFun.readCupom(res, req, 1);
+    fireFun.checkCnpj(res, req, 1);
+    //fireFun.readCupom(res, req, 1);
 });
 
+router.get('/homepage/block', ensureLoggedIn('/lojista/auth/google'),function(req, res){
+  res.render('block');
+});
 
 // CALCULADORA
 
-router.get('/calculadora', function(req, res){
+router.get('/calculadora', ensureLoggedIn('/lojista/auth/google') ,function(req, res){
   var idCupom = req.query.idCupom;
   var emailUser = req.query.emailUser;
 
@@ -89,7 +93,7 @@ router.get('/calculadora/cupom-promocional', ensureLoggedIn('lojista/auth/google
 	fireFun.validarCupom(res, req.user.id, idCupom);	
 });
 
-router.get('/calculadora/verificar-usuario', function(req, res){
+router.get('/calculadora/verificar-usuario', ensureLoggedIn('lojista/auth/google'),function(req, res){
 	var emailUser = req.query.emailUser;
 	var idCupom = req.query.idCupom;
 	fireFun.validarUsuario(res, emailUser, idCupom);
@@ -100,6 +104,12 @@ router.get('/calculadora/calcdezconto', ensureLoggedIn('/lojista/auth/google') ,
 	var email = req.query.email;
 	var valCompra = req.query.valCompra;
 	fireFun.validarBoth(res, idCupom, email, valCompra);
+});
+
+router.get('/homepage/alterar-configuracoes', ensureLoggedIn('/lojista/auth/google'), function(req, res){
+  var cnpj = req.query.cnpj;
+  fireFun.writeCnpj(res,req, cnpj);
+  res.send('<h2>Salvo!</h2>');
 });
 
 router.post('/homepage/gerenciar-cupons', ensureLoggedIn('/lojista/auth/google'), function(req, res){

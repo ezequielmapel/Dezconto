@@ -78,7 +78,7 @@ module.exports = {
 	},
 
 	
-	readCupom: function(res, req, index){
+	readCupom : function(res, req, index){
 		/// LER CUPONS DO FIREBASE
 		
 		var rCupons = database.ref('lojista_cupom').child(req.user.id);
@@ -154,6 +154,25 @@ module.exports = {
 		}
 		
 	});
+	},
+
+	checkCnpj: function(res, req, index){
+		database.ref("lojista/"+req.user.id).orderByChild('cnpj').once('value', function(snapshot){
+			//console.log(snapshot.val().cpnj);
+			if(!snapshot.val().cnpj){
+				res.redirect('homepage/block');
+			}else{
+				var rCupons = database.ref('lojista_cupom').child(req.user.id);
+				rCupons.once('value', function(snapshot){
+					treeCupom = snapshot.val()
+					res.render('account', {nomeLojista: req.user.displayName, imgProfile:req.user.photos[0].value, slideIndex: index, cuponsLojista:treeCupom});
+				});
+			}
+		});
+	},
+
+	writeCnpj: function(res,req, varCnpj){
+		database.ref('lojista/'+req.user.id).update({cnpj:varCnpj});
 	}
 }
 

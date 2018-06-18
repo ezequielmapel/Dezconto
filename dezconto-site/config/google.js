@@ -19,17 +19,19 @@ function checkWriteLojista(reqId, name, email, imageUrl, termosDeUso, novidades)
   var nLoj = firebase.database().ref('lojista/');
   nLoj.orderByChild('emailLojista').equalTo(email).once("value", function(snapshot){
     if(!snapshot.val()){
-      console.log("Escreveu");
       firebase.database().ref('lojista/'+reqId).set({
         nomeLojista: name,
         emailLojista: email,
         profile_picture : imageUrl,
-        descPerm: null,
+        descPerm: false,
         termosDeUso: false,
         novidades:false,
-        cnpj: null,
-        cupom: null,
-        data: dataS
+        cnpj: false,
+        cupom: false,
+        data: dataS,
+        end: {cidade: false, rua: false, bairro: false, estado: false},
+        telefone: false,
+        categoriaLoj: false
 
      });
     }
