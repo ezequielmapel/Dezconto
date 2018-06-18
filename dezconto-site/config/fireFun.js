@@ -12,7 +12,7 @@ var database = firebase.database();
 
 module.exports = {
 	// Função que escreve um novo cupom
-	writeCupom: function(nomeLoja, fotoLoja,idCupom, nomeCupom, desCupom, catCupom, valCupom, qtdCupom, validadePromo, validadeCupom){
+	writeCupom: function(nomeLoja, fotoLoja,idCupom, nomeCupom, desCupom, catCupom, valCupom, qtdCupom, validadePromo, validadeCupom, qtdInicial, dataCriacao, dataVenc){
 		var nCupom = database.ref('cupom/'+idCupom).set({
             nomeLoja: nomeLoja,
             fotoLoja: fotoLoja,
@@ -23,7 +23,11 @@ module.exports = {
 			valCupom : valCupom,
 			qtdCupom : qtdCupom,
 			validadePromo : validadePromo,
-			validadeCupom : validadeCupom
+			validadeCupom : validadeCupom,
+            qtdInicial: qtdInicial,
+            dataCriacao:dataCriacao,
+            dataVenc:dataVenc
+            
 		});
 
 		

@@ -114,13 +114,20 @@ router.post('/homepage/gerenciar-cupons', ensureLoggedIn('/lojista/auth/google')
   var nomeLoja = req.user.displayName;
   var fotoLoja = req.user.photos[0].value;
   var idCupom = fireFun.gerarIdCupom(req.user.displayName, nomeCupom, valCupom);
-
-  //console.log(nomeCupom, desCupom, catCupom, valCupom, qtdCupom, validadePromo, validadeCupom);
-  fireFun.writeCupom(nomeLoja,fotoLoja,idCupom, nomeCupom, desCupom, catCupom, valCupom, qtdCupom, validadePromo, validadeCupom);
+  
+  var dataCriacao = [];
+  dataCriacao.push(new Date().getUTCDate()-1);
+  dataCriacao.push(new Date().getUTCMonth() +1 );
+  
+  var dataVenc = dataVencimento(dataCriacao, validadeCupom);
+  var qtdInicial = qtdCupom;
+  dataCriacao = dataCriacao[1] +'-'+ dataCriacao[0];
+    
+  fireFun.writeCupom(nomeLoja,fotoLoja,idCupom, nomeCupom, desCupom, catCupom, valCupom, qtdCupom, validadePromo, validadeCupom, qtdInicial, dataCriacao, dataVenc);
   
   // Ligação lojista_cupm
   var idLoja = req.user.id;
-  fireFun.writeLojaCupom(idLoja, idCupom, nomeCupom, desCupom, qtdCupom, valCupom, validadeCupom, validadePromo);
+  fireFun.writeLojaCupom(idLoja, idCupom, nomeCupom, desCupom, qtdCupom, valCupom, validadeCupom, validadePromo, qtdInicial, dataCriacao, dataVenc);
   
   // Atualizando o cupom criado no lojista
   fireFun.updateCupom(idCupom, idLoja);
@@ -132,13 +139,37 @@ router.post('/homepage/gerenciar-cupons', ensureLoggedIn('/lojista/auth/google')
   
 });
 
-
-
-
 // GERENCIAR-CUPOM 
-
-
-
-
-
 module.exports = router;
+
+function daysInMonth (month, year) {
+    return new Date(year, month, 0).getDate();
+}
+
+function dataVencimento(dataCriacao, validadeCupom){
+    /* Gerar data de vencimento do cupom */
+    var dia = dataCriacao[0]; 
+    var mes = dataCriacao[1];
+    var dataVenc;
+    var maxDay = daysInMonth(mes, new Date().getUTCFullYear());
+    if(dataCriacao[0] + validadeCupom > maxDay){
+     
+      for(var i=0; i<=validadeCupom; i++){
+          
+          if(dia == maxDay){
+              dia = 0;
+              mes++;
+              maxDay = daysInMonth(mes, new Date().getUTCFullYear());
+          }
+          dia++;
+      }
+      
+      dataVenc = mes+'-'+dia
+      
+  }else{
+      dataVenc.push(dia);
+      dataVenc.push(dataCriacao[1]);
+  }
+
+return dataVenc;
+}
