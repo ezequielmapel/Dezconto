@@ -23,6 +23,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -78,26 +79,49 @@ public class CuponFragment extends Fragment{
             q.addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    Item cupom = dataSnapshot.getValue(Item.class);
-                    lista.add(cupom);
+                    final Item cupom = dataSnapshot.getValue(Item.class);
+                    // Checar a quantidade de cupons, se ela for > 0
+                    if(cupom != null && Integer.parseInt(cupom.getQtdCupom()) > 0){
+                        Query cuponsUser = FirebaseDatabase.getInstance().getReference().child("usuario_cupom/"+u.getUserId()+"/"+cupom.getIdCupom());
 
-                    try {
-                        ListAdapterItem adapterItem = new ListAdapterItem(getContext(), lista, u);
-                        ListView listView = getView().findViewById(R.id.idListView);
-                        listView.setAdapter(adapterItem);
+                        cuponsUser.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                if(dataSnapshot.getValue() == null){
+                                    lista.add(cupom);
 
 
-                        progressCupons.setVisibility(View.INVISIBLE);
-                        listView.setVisibility(View.VISIBLE);
+                                    try {
+                                        ListAdapterItem adapterItem = new ListAdapterItem(getContext(), lista, u);
+                                        ListView listView = getView().findViewById(R.id.idListView);
+                                        listView.setAdapter(adapterItem);
 
-                        //
-                        //
-                        // progressAtt.setVisibility(View.INVISIBLE);
 
-                        btnAttCupons.setVisibility(View.VISIBLE);
-                    } catch (NullPointerException ignored) {
+                                        progressCupons.setVisibility(View.INVISIBLE);
+                                        listView.setVisibility(View.VISIBLE);
+
+
+                                        // progressAtt.setVisibility(View.INVISIBLE);
+
+                                        btnAttCupons.setVisibility(View.VISIBLE);
+                                    } catch (NullPointerException ignored) {
+
+                                    }
+
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+
 
                     }
+
+
 
 
 //               for (DataSnapshot ds: dataSnapshot.getChildren()){

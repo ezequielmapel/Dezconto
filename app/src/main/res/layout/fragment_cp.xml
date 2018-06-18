@@ -31,7 +31,7 @@
             android:visibility="invisible"
             android:id="@+id/idListView"
             android:layout_width="match_parent"
-            android:layout_height="490dp"
+            android:layout_height="480dp"
             android:layout_marginTop="0dp"
 
             app:layout_constraintTop_toTopOf="parent"

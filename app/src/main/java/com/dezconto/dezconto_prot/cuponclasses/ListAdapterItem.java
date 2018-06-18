@@ -31,6 +31,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by brhue on 28/04/2018.
@@ -70,7 +71,8 @@ public class ListAdapterItem extends ArrayAdapter<Item>{
         qtd.setText( "x "+ itemPos.getQtdCupom());
 
         TextView validade = convertView.findViewById(R.id.tvValidade);
-        validade.setText(itemPos.getValidadeCupom() + " dia(s)");
+        String[] venc = itemPos.getDataVenc().split("-");
+        validade.setText("Vence em: " + venc[1]+'/'+venc[0]);
 
 
 
@@ -109,9 +111,21 @@ public class ListAdapterItem extends ArrayAdapter<Item>{
             public void onClick(View view) {
 
                  if(user != null){
-                     FireData.setCupomToUser(itemPos,u.getUserId());
+                     // SE FOR true O CUPOM ESTÁ VENCIDO
+                     if(!Cupom.cupomVencimento(itemPos)) {
+                         FireData.setCupomToUser(itemPos, u.getUserId());
+                     }else{
+                         Toast.makeText(getContext(), "Desculpe, este cupom está vencido!", Toast.LENGTH_SHORT).show();
+                     }
+
+
+
                  }else{
-                     FireData.setCupomToUser(itemPos,FirebaseAuth.getInstance().getCurrentUser().getUid());
+                        if(!Cupom.cupomVencimento(itemPos)) {
+                            FireData.setCupomToUser(itemPos, FirebaseAuth.getInstance().getCurrentUser().getUid());
+                        }else{
+                            Toast.makeText(getContext(), "Desculpe, este cupom está vencido!", Toast.LENGTH_SHORT).show();
+                        }
 
                  }
 

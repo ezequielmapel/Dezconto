@@ -14,6 +14,30 @@ public class Item{
     private String catCupom;
     private String validadeCupom;
     private String desCupom;
+    private String dataVenc;
+    private String dataCriacao;
+
+    public String getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(String dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
+    public String getDataVenc() {
+        return dataVenc;
+    }
+
+    public void setDataVenc(String dataVenc) {
+        this.dataVenc = dataVenc;
+    }
+
+
+
+
+
+
 
     public String getFotoLoja() {
         return fotoLoja;
@@ -96,7 +120,7 @@ public class Item{
 
     }
 
-    public Item(String nomeCupom, String qtdCupom, String valCupom, String validadePromo, String catCupom, String validadeCupom, String desCupom, String fotoLoja, String idCupom){
+    public Item(String nomeCupom, String qtdCupom, String valCupom, String validadePromo, String catCupom, String validadeCupom, String desCupom, String fotoLoja, String idCupom, String dataVenc){
         this.nomeCupom = nomeCupom;
         this.qtdCupom = qtdCupom;
         this.valCupom = valCupom;
@@ -106,6 +130,7 @@ public class Item{
         this.desCupom = desCupom;
         this.fotoLoja = fotoLoja;
         this.idCupom = idCupom;
+        this.dataVenc = dataVenc;
     }
 
 }

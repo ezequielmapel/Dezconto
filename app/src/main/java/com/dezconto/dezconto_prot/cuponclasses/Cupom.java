@@ -1,5 +1,7 @@
 package com.dezconto.dezconto_prot.cuponclasses;
 
+import java.util.Calendar;
+
 /**
  * Created by brhue on 07/06/2018.
  */
@@ -91,5 +93,42 @@ public class Cupom {
         this.valCupom = valCupom;
         this.validadeCupom = validadeCupom;
         this.validadePromo = validadePromo;
+    }
+
+
+    public static boolean cupomVencimento(Item itemPos){
+        // VERIFICANDO SE O CUPOM ESTÁ VENCIDO
+        String[] vencimento = itemPos.getDataVenc().split("-");
+        int[] dataVenc = new int[2];
+        int[] dataHoje = new int[2];
+        dataHoje[0] =  Calendar.getInstance().get(Calendar.MONTH)+1;
+        dataHoje[1] = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)-1;
+
+
+        for( int i = 0; i<vencimento.length; i++){
+            dataVenc[i] = Integer.parseInt(vencimento[i]);
+            i++;
+        }
+
+        return dataHoje[0] == dataVenc[0] && dataHoje[1] == dataVenc[1];
+    }
+
+
+    public static int DiaDoCupomVencer(Item itemPos){
+        String[] vencimento = itemPos.getDataVenc().split("-");
+        int[] dataVenc = new int[2];
+        int[] dataHoje = new int[2];
+        int[] distVenc = new int[2];
+        dataHoje[0] =  Calendar.getInstance().get(Calendar.MONTH)+1;
+        dataHoje[1] = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)-1;
+
+
+        for( int i = 0; i<vencimento.length; i++){
+            dataVenc[i] = Integer.parseInt(vencimento[i]);
+            i++;
+        }
+
+        return dataVenc[0];
+
     }
 }

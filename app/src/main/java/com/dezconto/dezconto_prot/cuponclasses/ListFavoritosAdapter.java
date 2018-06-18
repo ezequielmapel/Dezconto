@@ -63,7 +63,8 @@ public class ListFavoritosAdapter extends ArrayAdapter<Item> {
         desc.setText(itemPos.getDesCupom()+" " + itemPos.getValCupom() + "%");
 
         TextView validade = convertView.findViewById(R.id.tvValidade);
-        validade.setText(itemPos.getValidadeCupom() + " dia(s)");
+        String[] venc = itemPos.getDataVenc().split("-");
+        validade.setText("Vence em: " + venc[1]+'/'+venc[0]);
 
 
 
