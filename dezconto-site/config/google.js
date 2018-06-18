@@ -26,7 +26,7 @@ function checkWriteLojista(reqId, name, email, imageUrl, termosDeUso, novidades)
         descPerm: false,
         termosDeUso: false,
         novidades:false,
-        cnpj: false,
+        cnpj: "null",
         cupom: false,
         data: dataS,
         end: {cidade: false, rua: false, bairro: false, estado: false},
