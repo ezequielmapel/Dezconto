@@ -71,8 +71,8 @@ passport.deserializeUser(function(user, done) {
 
 router.get('/homepage', ensureLoggedIn('/lojista/auth/google'), function(req, res, next){
 //  res.render('account', {nomeLojista: req.user.displayName, imgProfile:req.user.photos[0].value, slideIndex:1});
-    fireFun.checkCnpj(res, req, 1);
-    //fireFun.readCupom(res, req, 1);
+    //fireFun.checkCnpj(res, req, 1);
+    fireFun.readCupom(res, req, 1);
 });
 
 router.get('/homepage/block', ensureLoggedIn('/lojista/auth/google'),function(req, res){
